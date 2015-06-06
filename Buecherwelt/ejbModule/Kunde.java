@@ -10,22 +10,20 @@ import javax.persistence.Id;
 
 
 @Entity
-public class Kunde extends Person  implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
+public class Kunde extends Person implements Serializable {
 	
 	@Id @GeneratedValue
 	private int id;
-	
+
 	private ArrayList<Ausleihe> ausleihListe;
 	
 	public Kunde() {
-		super();
+		
 	}
 	
 	public Kunde(String name, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
 		super(name, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
-		ausleihListe = new ArrayList<Ausleihe>();
+		setAusleihListe(new ArrayList<Ausleihe>());
 	}
 	
 	public void addAusleihe(Buch buch) {
@@ -33,13 +31,12 @@ public class Kunde extends Person  implements Serializable {
 		Timestamp currentTime = new Timestamp(leihdatum.getTime());
 		Ausleihe newAusleihe = new Ausleihe(currentTime, this, buch);
 	}
-	
-	public int getId(){
-		return id;
-	}
-	
-	public void setId(int id){
-		this.id = id;
+
+	public ArrayList<Ausleihe> getAusleihListe() {
+		return ausleihListe;
 	}
 
+	public void setAusleihListe(ArrayList<Ausleihe> ausleihListe) {
+		this.ausleihListe = ausleihListe;
+	}
 }
