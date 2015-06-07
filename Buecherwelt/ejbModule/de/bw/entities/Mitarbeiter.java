@@ -1,13 +1,24 @@
+package de.bw.entities;
 import java.io.Serializable;
 
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
-public abstract class Person implements Serializable{
+@Entity
+@Table
+public class Mitarbeiter implements Serializable{
+	
 	
 	private static final long serialVersionUID = 1L;
-
-	private String name;
+	
+	@Id @GeneratedValue
+	private int id;
+	
+	private String vorname;
 	private String nachname;
 	private String plz;
 	private String ort;
@@ -16,9 +27,18 @@ public abstract class Person implements Serializable{
 	private String email;
 	private String benutzername;
 	private String passwort;
+
+	public Mitarbeiter(){
+
+	}
 	
-	public Person(String name, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
-		this.name = name;
+	//public Mitarbeiter(String name, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
+	//	super(name, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
+	//}
+	
+	public Mitarbeiter(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
+
+		this.vorname = vorname;
 		this.nachname = nachname;
 		this.plz = plz;
 		this.ort = ort;
@@ -27,14 +47,19 @@ public abstract class Person implements Serializable{
 		this.email = email;
 		this.benutzername = benutzername;
 		this.passwort = passwort;
-	}
-	
-	public Person() {
 		
 	}
+
+	public int getId() {
+		return id;
+	}
 	
-	public String getName() {
-		return name;
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getVorname() {
+		return vorname;
 	}
 	
 	public String getNachname() {
@@ -69,8 +94,9 @@ public abstract class Person implements Serializable{
 		return passwort;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
+
+	public void setVorname(String vorname) {
+		this.vorname = vorname;
 	}
 	
 	public void setNachname(String nachname) {
@@ -105,4 +131,5 @@ public abstract class Person implements Serializable{
 		this.passwort = passwort;
 
 	}
+	
 }
