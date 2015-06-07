@@ -5,9 +5,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 //import java.util.Date;
 
-
-
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -52,6 +49,12 @@ public class Kunde implements Serializable {
 		this.benutzername = benutzername;
 		this.passwort = passwort;
 		setAusleihListe(new ArrayList<Ausleihe>());
+	}
+	
+	public Kunde(int testId, String benutzername, String passwort) {
+		this.id = testId;
+		this.benutzername = benutzername;
+		this.passwort = passwort;		
 	}
 	
 	public Kunde() {
