@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.jws.WebService;
+
+import org.jboss.ws.api.annotation.WebContext;
 
 import de.bw.entities.Kunde;
 
@@ -12,7 +15,8 @@ import de.bw.entities.Kunde;
  * @author user
  *
  */
-
+@WebService
+@WebContext(contextRoot="/buecherwelt")
 @Stateless
 public class Kundenverwaltung {
 	

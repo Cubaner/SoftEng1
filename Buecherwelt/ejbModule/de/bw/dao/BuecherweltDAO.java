@@ -9,12 +9,15 @@ import de.bw.entities.Mitarbeiter;
 
 
 
-
 @Stateless
 public class BuecherweltDAO implements BuecherweltDAOLocal{
 
 	@PersistenceContext
 	private EntityManager em;
+	
+	public BuecherweltSession findSessionById(int id) {
+		return em.find(BuecherweltSession.class, id);
+	}
 	
 	public Kunde findKundeByName(String name){
 		return em.find(Kunde.class, name);
@@ -30,13 +33,19 @@ public class BuecherweltDAO implements BuecherweltDAOLocal{
 		return newSession.getId();
 	}
 	
+	public int createSession(Mitarbeiter mitarbeiter){
+		BuecherweltSession newSession = new BuecherweltSession(mitarbeiter);
+		em.persist(newSession);
+		return newSession.getId();
+	}
+	
 	public void closeSession(int id){
 		BuecherweltSession session = em.find(BuecherweltSession.class, id);
 		em.remove(session);
 	}
 	
-	public Mitarbeiter findMitarbeiterByName(String name){
-		return em.find(Mitarbeiter.class, name);
+	public Mitarbeiter findMitarbeiterByName(String benutzername){
+		return em.find(Mitarbeiter.class, benutzername);
 	}
 	
 	public Mitarbeiter findMitarbeiterById(int id){
