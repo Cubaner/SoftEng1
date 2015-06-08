@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.jws.WebService;
+
+import org.jboss.ws.api.annotation.WebContext;
 
 import de.bw.entities.Buch;
 
@@ -13,6 +16,8 @@ import de.bw.entities.Buch;
  *
  */
 
+@WebService
+@WebContext(contextRoot="/buecherwelt")
 @Stateless
 public class Buchverwaltung {
 	

@@ -15,8 +15,15 @@ public class BuecherweltSession {
 	private String username;
 	private Date creationTime;
 	
+	
+	
 	public BuecherweltSession(Kunde username) {
 		this.username = username.getBenutzername();
+		this.creationTime = new Date();
+	}
+	
+	public BuecherweltSession(Mitarbeiter mitarbeiter) {
+		this.username = mitarbeiter.getBenutzername();
 		this.creationTime = new Date();
 	}
 	
