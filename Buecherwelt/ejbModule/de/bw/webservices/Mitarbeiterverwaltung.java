@@ -1,8 +1,12 @@
+package de.bw.webservices;
+
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import de.bw.entities.Mitarbeiter;
 
 @Stateless
 public class Mitarbeiterverwaltung {
@@ -10,9 +14,9 @@ public class Mitarbeiterverwaltung {
 	@PersistenceContext
 	private EntityManager em;
 	
-	public void mitarbeiterHinzufuegen(String name){
+	public void mitarbeiterHinzufuegen(String vorname){
 		Mitarbeiter mitarbeiter = new Mitarbeiter();
-		mitarbeiter.setName(name);
+		mitarbeiter.setVorname(vorname);
 		em.persist(mitarbeiter);
 		
 	}

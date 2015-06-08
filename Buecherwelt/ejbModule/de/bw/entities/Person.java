@@ -1,7 +1,10 @@
+package de.bw.entities;
+import java.io.Serializable;
 
-
-public abstract class Person {
+public abstract class Person implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	private String name;
 	private String nachname;
 	private String plz;
@@ -13,6 +16,7 @@ public abstract class Person {
 	private String passwort;
 	
 	public Person(String name, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
+
 		this.name = name;
 		this.nachname = nachname;
 		this.plz = plz;
@@ -25,7 +29,7 @@ public abstract class Person {
 	}
 	
 	public Person() {
-		
+			
 	}
 	
 	public String getName() {
@@ -64,6 +68,7 @@ public abstract class Person {
 		return passwort;
 	}
 	
+
 	public void setName(String name) {
 		this.name = name;
 	}

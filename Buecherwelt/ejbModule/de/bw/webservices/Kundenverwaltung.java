@@ -1,10 +1,11 @@
+package de.bw.webservices;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
-import javax.jws.WebService;
 
-import org.jboss.ws.api.annotation.WebContext;
+import de.bw.entities.Kunde;
 
 
 /**

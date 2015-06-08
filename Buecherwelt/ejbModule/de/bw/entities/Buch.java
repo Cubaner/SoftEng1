@@ -1,3 +1,4 @@
+package de.bw.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -20,7 +21,7 @@ public class Buch implements Serializable{
 	private int anzahl;
 	
 	public Buch() {
-		super();
+	
 	}
 	
 	public Buch(String titel, String autor, Date erscheinungsjahr, int anzahl) {
