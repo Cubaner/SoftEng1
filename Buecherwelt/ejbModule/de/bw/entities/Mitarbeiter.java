@@ -1,6 +1,7 @@
 package de.bw.entities;
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,7 +11,6 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Mitarbeiter implements Serializable{
-	
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -22,20 +22,17 @@ public class Mitarbeiter implements Serializable{
 	private String plz;
 	private String ort;
 	private String strasse;
-	private String hausnummer;
+	private int hausnummer;
 	private String email;
+	@Column(nullable=false)
 	private String benutzername;
 	private String passwort;
 
 	public Mitarbeiter(){
-
+		super();
 	}
-	
-	//public Mitarbeiter(String name, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
-	//	super(name, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
-	//}
-	
-	public Mitarbeiter(int id, String vorname, String nachname, String plz, String ort, String strasse, String hausnummer, String email, String benutzername, String passwort) {
+		
+	public Mitarbeiter(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
 		this.id = id;
 		this.vorname = vorname;
 		this.nachname = nachname;
@@ -48,7 +45,7 @@ public class Mitarbeiter implements Serializable{
 		this.passwort = passwort;
 	}
 	
-	public Mitarbeiter(String vorname, String nachname, String plz, String ort, String strasse, String hausnummer, String email, String benutzername, String passwort) {		
+	public Mitarbeiter(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {		
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.plz = plz;
@@ -61,7 +58,7 @@ public class Mitarbeiter implements Serializable{
 	}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 	
 	public void setId(int id) {
@@ -69,42 +66,41 @@ public class Mitarbeiter implements Serializable{
 	}
 	
 	public String getVorname() {
-		return vorname;
+		return this.vorname;
 	}
 	
 	public String getNachname() {
-		return nachname;
+		return this.nachname;
 	}
 	
 	public String getPlz() {
-		return plz;
+		return this.plz;
 	}
 
 	public String getOrt() {
-		return ort;
+		return this.ort;
 	}
 	
 	public String getStrasse() {
-		return strasse;
+		return this.strasse;
 	}
 	
-	public String getHausnummer() {
-		return hausnummer;
+	public int getHausnummer() {
+		return this.hausnummer;
 	}
 	
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 	
 	public String getBenutzername() {
-		return benutzername;
+		return this.benutzername;
 	}
 	
 	public String getPasswort() {
-		return passwort;
+		return this.passwort;
 	}
 	
-
 	public void setVorname(String vorname) {
 		this.vorname = vorname;
 	}
@@ -125,7 +121,7 @@ public class Mitarbeiter implements Serializable{
 		this.strasse = strasse;
 	}
 	
-	public void setHausnummer(String hausnummer) {
+	public void setHausnummer(int hausnummer) {
 		this.hausnummer = hausnummer;
 	}
 	
@@ -139,7 +135,5 @@ public class Mitarbeiter implements Serializable{
 	
 	public void setPasswort(String passwort) {
 		this.passwort = passwort;
-
 	}
-	
 }

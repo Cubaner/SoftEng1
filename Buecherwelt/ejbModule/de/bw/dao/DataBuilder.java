@@ -21,10 +21,10 @@ public class DataBuilder {
 	EntityManager em;
 	
 	@Resource
-	private int id;
+	private int id, hausnummer;
 		
 	@Resource
-	private String vorname, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort;
+	private String vorname, nachname, plz, ort, strasse, email, benutzername, passwort;
 
 	@PostConstruct
 	private void init() {

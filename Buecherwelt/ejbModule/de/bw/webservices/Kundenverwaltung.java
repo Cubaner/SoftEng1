@@ -3,12 +3,16 @@ package de.bw.webservices;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
 
 import org.jboss.ws.api.annotation.WebContext;
 
+import de.bw.dao.BuecherweltDAOLocal;
 import de.bw.entities.Kunde;
+import de.bw.entities.Mitarbeiter;
+import de.bw.exception.BuecherweltException;
 
 
 /**
@@ -19,17 +23,19 @@ import de.bw.entities.Kunde;
 @WebContext(contextRoot="/buecherwelt")
 @Stateless
 public class Kundenverwaltung {
-	
-	public Kundenverwaltung() {
 		
-	}
+	@EJB(beanName = "BuecherweltDAO", beanInterface = de.bw.dao.BuecherweltDAOLocal.class)
+	private BuecherweltDAOLocal dao;
 
-	public void kundeHinzufuegen(String name, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
-		new Kunde(name, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
+	public void kundeHinzufuegen(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) throws BuecherweltException {
+			Kunde kunde = dao.createKunde(vorname, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
+			if (kunde == null) {
+				throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da der Benutzer bereits existiert");
+			}
 	}
 	
-	public void kundeLoeschen(String name, String nachname, String ort, String strasse, int hausnummer) {
-		//Parameter zur eindeutigen Identifizierung
+	public void kundeLoeschen(int id) {
+		dao.deleteKunde(id);
 	}
 	
 	public List<Kunde> kundeSuchen(String nachname) {
@@ -69,5 +75,4 @@ public class Kundenverwaltung {
 		Buchverwaltung newBuchverwaltung = new Buchverwaltung();
 		newBuchverwaltung.buchSuchen(titel);
 	}
-
 }

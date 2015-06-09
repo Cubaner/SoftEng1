@@ -4,26 +4,25 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
-
+import javax.persistence.Table;
 
 @Entity
+@Table
 public class BuecherweltSession {
 	
 	@Id @GeneratedValue
 	private int id;
-	private String username;
+	
+	private String benutzername;
 	private Date creationTime;
 	
-	
-	
-	public BuecherweltSession(Kunde username) {
-		this.username = username.getBenutzername();
+	public BuecherweltSession(Kunde kunde) {
+		this.benutzername = kunde.getBenutzername();
 		this.creationTime = new Date();
 	}
 	
 	public BuecherweltSession(Mitarbeiter mitarbeiter) {
-		this.username = mitarbeiter.getBenutzername();
+		this.benutzername = mitarbeiter.getBenutzername();
 		this.creationTime = new Date();
 	}
 	
@@ -32,19 +31,19 @@ public class BuecherweltSession {
 	}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return this.username;
+	public String getBenutzername() {
+		return this.benutzername;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setBenutzername(String benutzername) {
+		this.benutzername = benutzername;
 	}
 
 	public Date getCreationTime() {

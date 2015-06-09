@@ -1,5 +1,6 @@
 package de.bw.webservices;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -59,8 +60,8 @@ public class Mitarbeiterverwaltung {
 		return response;
 	}
 	
-	public void mitarbeiterLoeschen(){
-		
+	public void mitarbeiterLoeschen(int id){
+		dao.deleteMitarbeiter(id);
 	}
 	
 	public Mitarbeiter mitarbeiterSuchen(){
@@ -68,8 +69,16 @@ public class Mitarbeiterverwaltung {
 	}
 	
 	public List<Mitarbeiter> getAllMitarbeiter(){
-		return null;
+		List<Mitarbeiter> alleMitarbeiter = new ArrayList<Mitarbeiter>();
+		alleMitarbeiter = dao.alleMitarbeiterAnzeigen();
+		return alleMitarbeiter;
 		
 	}
-
+	
+	public void neuenMitarbeiterHinzufuegen(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) throws BuecherweltException {
+			Mitarbeiter mitarbeiter = dao.createMitarbeiter(vorname, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
+			if (mitarbeiter == null) {
+				throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da der Benutzer bereits existiert");
+			}
+	}
 }

@@ -10,6 +10,10 @@ public class BuecherweltException extends Exception {
 		super(message);
 		this.errorCode = errorCode;
 	}
+	
+	public BuecherweltException(String message) {
+		super(message);
+	}
 
 	public int getErrorCode() {
 		return errorCode;

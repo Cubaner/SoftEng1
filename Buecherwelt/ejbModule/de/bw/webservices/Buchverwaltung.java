@@ -4,12 +4,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
 
 import org.jboss.ws.api.annotation.WebContext;
 
+import de.bw.dao.BuecherweltDAOLocal;
 import de.bw.entities.Buch;
+import de.bw.entities.BuecherweltSession;
+import de.bw.exception.BuecherweltException;
+import de.bw.exception.NoSessionException;
 
 /**
  * @author user
@@ -21,19 +26,26 @@ import de.bw.entities.Buch;
 @Stateless
 public class Buchverwaltung {
 	
-	public Buchverwaltung() {
-		super();
+	@EJB(beanName = "BuecherweltDAO", beanInterface = de.bw.dao.BuecherweltDAOLocal.class)
+	private BuecherweltDAOLocal dao;
+	
+	private BuecherweltSession getSession(int sessionId) throws NoSessionException {
+		BuecherweltSession session = dao.findSessionById(sessionId);
+		if (session==null)
+			throw new NoSessionException("Bitte zunächst ein Login durchführen.");
+		else
+			return session;
 	}
 	
-	public void neuesBuchHinzufuegen(String titel, String autor, Date erscheinungsjahr, int anzahl) {
-		new Buch(titel, autor, erscheinungsjahr, anzahl);
+	public void neuesBuchHinzufuegen(String titel, String autor, Date erscheinungsjahr, int anzahl) throws BuecherweltException {
+			Buch buch = dao.createBuch(titel, autor, erscheinungsjahr, anzahl);
+			if (buch == null) {
+				throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da das Buch bereits existiert");
+			}
 	}
 	
-	public void buchLoeschen(String titel, String autor) {
-		/* Wenn Titel und Autor gleich dem Titel und Autor von der Datenbank sind, dann ...
-		//if((titel == titel)&&(autor == autor)) {
-			dann aus Datenbank entfernen 
-		} */
+	public void buchLoeschen(int id) {
+		dao.deleteBuch(id);
 	}
 	
 	public List<Buch> getAllBuecher() {

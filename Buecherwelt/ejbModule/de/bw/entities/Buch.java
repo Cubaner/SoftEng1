@@ -6,8 +6,10 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table
 public class Buch implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -21,7 +23,7 @@ public class Buch implements Serializable{
 	private int anzahl;
 	
 	public Buch() {
-	
+		super();
 	}
 	
 	public Buch(String titel, String autor, Date erscheinungsjahr, int anzahl) {
@@ -31,28 +33,28 @@ public class Buch implements Serializable{
 		this.anzahl = anzahl;
 	}
 	
-	public String getTitel() {
-		return titel;
-	}
-	
 	public int getId() {
-		return id;
-	}
-	
-	public String getAutor() {
-		return autor;
-	}
-
-	public Date getErscheinungsjahr() {
-		return erscheinungsjahr;
-	}
-	
-	public int getAnzahl() {
-		return anzahl;
+		return this.id;
 	}
 	
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public String getTitel() {
+		return this.titel;
+	}
+	
+	public String getAutor() {
+		return this.autor;
+	}
+
+	public Date getErscheinungsjahr() {
+		return this.erscheinungsjahr;
+	}
+	
+	public int getAnzahl() {
+		return this.anzahl;
 	}
 	
 	public void setTitel(String titel) {

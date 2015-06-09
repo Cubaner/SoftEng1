@@ -4,6 +4,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author user
@@ -11,6 +12,7 @@ import javax.persistence.Id;
  */
 
 @Entity
+@Table
 public class Ausleihe {
 	
 	@Id @GeneratedValue
@@ -28,6 +30,14 @@ public class Ausleihe {
 		this.leihdatum = leihdatum;
 		this.kunde = kunde;
 		this.buch = buch;
+	}
+	
+	public int getId() {
+		return this.id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	public Date getLeihdatum() {

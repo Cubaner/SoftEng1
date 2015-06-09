@@ -1,16 +1,16 @@
 package de.bw.entities;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 //import java.sql.Timestamp;
 import java.util.ArrayList;
 //import java.util.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-
 
 @Entity
 @Table
@@ -32,10 +32,6 @@ public class Kunde implements Serializable {
 	private String passwort;
 	
 	private ArrayList<Ausleihe> ausleihListe;
-
-	//public Kunde(String name, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
-		//super(name, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);	
-	//}
 	
 	public Kunde(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
 
@@ -50,33 +46,34 @@ public class Kunde implements Serializable {
 		this.passwort = passwort;
 		setAusleihListe(new ArrayList<Ausleihe>());
 	}
-	
-	public Kunde(int testId, String benutzername, String passwort) {
-		this.id = testId;
-		this.benutzername = benutzername;
-		this.passwort = passwort;		
-	}
-	
+		
 	public Kunde() {
-
+		super();
 	}
+	
 	public int getId() {
-		return id;
+		return this.id;
 	}
 	
 	public void setId(int id) {
 		this.id = id;
 	}
 	
-	
-	//public void addAusleihe(Buch buch) {
-		//Date leihdatum = new Date();
-		//Timestamp currentTime = new Timestamp(leihdatum.getTime());
-		//Ausleihe newAusleihe = new Ausleihe(currentTime, this, buch);
-	//}
+	public void addAusleihe(Buch buch) {
+		if(buch.getAnzahl() >= 1) {
+		Date leihdatum = new Date();
+		Timestamp currentTime = new Timestamp(leihdatum.getTime());
+		Ausleihe newAusleihe = new Ausleihe(currentTime, this, buch);
+		buch.anzahlVerringern();
+		ausleihListe.add(newAusleihe);
+		}
+		else {
+			System.out.println("Nicht genügend Bücher im Bestand!");
+		}
+	}
 
 	public ArrayList<Ausleihe> getAusleihListe() {
-		return ausleihListe;
+		return this.ausleihListe;
 	}
 
 	public void setAusleihListe(ArrayList<Ausleihe> ausleihListe) {
@@ -84,42 +81,41 @@ public class Kunde implements Serializable {
 	}
 	
 	public String getVorname() {
-		return vorname;
+		return this.vorname;
 	}
 	
 	public String getNachname() {
-		return nachname;
+		return this.nachname;
 	}
 	
 	public String getPlz() {
-		return plz;
+		return this.plz;
 	}
 
 	public String getOrt() {
-		return ort;
+		return this.ort;
 	}
 	
 	public String getStrasse() {
-		return strasse;
+		return this.strasse;
 	}
 	
 	public int getHausnummer() {
-		return hausnummer;
+		return this.hausnummer;
 	}
 	
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 	
 	public String getBenutzername() {
-		return benutzername;
+		return this.benutzername;
 	}
 	
 	public String getPasswort() {
-		return passwort;
+		return this.passwort;
 	}
 	
-
 	public void setVorname(String vorname) {
 		this.vorname = vorname;
 	}
