@@ -6,11 +6,6 @@
       <ejb-name>DataBuilder</ejb-name>
       <ejb-class>de.bw.dao.DataBuilder</ejb-class>
       <env-entry>
-        <env-entry-name>de.bw.dao.DataBuilder/id</env-entry-name>
-        <env-entry-type>int</env-entry-type>
-        <env-entry-value></env-entry-value>
-      </env-entry>
-      <env-entry>
         <env-entry-name>de.bw.dao.DataBuilder/vorname</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>adminVorname</env-entry-value>
@@ -37,7 +32,7 @@
       </env-entry>
       <env-entry>
         <env-entry-name>de.bw.dao.DataBuilder/hausnummer</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-type>int</env-entry-type>
         <env-entry-value>5</env-entry-value>
       </env-entry>
       <env-entry>
@@ -54,11 +49,6 @@
         <env-entry-name>de.bw.dao.DataBuilder/passwort</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>admin</env-entry-value>
-      </env-entry>
-       <env-entry>
-        <env-entry-name>de.bw.dao.DataBuilder/id2</env-entry-name>
-        <env-entry-type>int</env-entry-type>
-        <env-entry-value></env-entry-value>
       </env-entry>
       <env-entry>
       <env-entry-name>de.bw.dao.DataBuilder/vorname2</env-entry-name>
@@ -87,8 +77,8 @@
       </env-entry>
       <env-entry>
         <env-entry-name>de.bw.dao.DataBuilder/hausnummer2</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>test6</env-entry-value>
+        <env-entry-type>int</env-entry-type>
+        <env-entry-value>6</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.bw.dao.DataBuilder/email2</env-entry-name>

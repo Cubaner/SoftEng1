@@ -23,7 +23,7 @@ public class Mitarbeiter implements Serializable{
 	private String plz;
 	private String ort;
 	private String strasse;
-	private String hausnummer;
+	private int hausnummer;
 	private String email;
 	@Column(nullable=false)
 	private String benutzername;
@@ -33,8 +33,7 @@ public class Mitarbeiter implements Serializable{
 		super();
 	}
 		
-	public Mitarbeiter(int id, String vorname, String nachname, String plz, String ort, String strasse, String hausnummer, String email, String benutzername, String passwort) {
-		this.id = id;
+	public Mitarbeiter(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.plz = plz;
@@ -74,7 +73,7 @@ public class Mitarbeiter implements Serializable{
 		return this.strasse;
 	}
 	
-	public String getHausnummer() {
+	public int getHausnummer() {
 		return this.hausnummer;
 	}
 	
@@ -110,7 +109,7 @@ public class Mitarbeiter implements Serializable{
 		this.strasse = strasse;
 	}
 	
-	public void setHausnummer(String hausnummer) {
+	public void setHausnummer(int hausnummer) {
 		this.hausnummer = hausnummer;
 	}
 	

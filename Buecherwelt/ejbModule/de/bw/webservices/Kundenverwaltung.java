@@ -27,8 +27,8 @@ public class Kundenverwaltung {
 	@EJB(beanName = "BuecherweltDAO", beanInterface = de.bw.dao.BuecherweltDAOLocal.class)
 	private BuecherweltDAOLocal dao;
 
-	public void kundeHinzufuegen(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) throws BuecherweltException {
-		Kunde kunde = dao.createKunde(vorname, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
+	public void kundeHinzufuegen(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) throws BuecherweltException {
+		Kunde kunde = dao.createKunde(id, vorname, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
 		if (kunde == null) {
 			throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da der Benutzer bereits existiert");
 			}
@@ -65,9 +65,9 @@ public class Kundenverwaltung {
 		
 	}
 	
-	public void buchAusListeEntfernen(String nachname, String titel) {
+	public void buchAusListeEntfernen(int id, String nachname, String titel) {
 		kundeSuchen(nachname);
 		Buchverwaltung newBuchverwaltung = new Buchverwaltung();
-		newBuchverwaltung.buchSuchen(titel);
+		newBuchverwaltung.buchSuchen(id);
 	}
 }

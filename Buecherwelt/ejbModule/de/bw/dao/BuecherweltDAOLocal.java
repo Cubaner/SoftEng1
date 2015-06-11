@@ -21,31 +21,25 @@ public interface BuecherweltDAOLocal {
 	
 	public void closeSession(int id);
 	
-	public Mitarbeiter findMitarbeiterByName(String benutzername);
-	
 	public Mitarbeiter findMitarbeiterById(int id);
 	
-	public Mitarbeiter createMitarbeiter(int id, String vorname, String nachname, String plz, String ort, String strasse, String hausnummer, String email, String benutzername, String passwort);
+	public Mitarbeiter createMitarbeiter(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort);
 	
 	public void deleteMitarbeiter(int id);
 	
-	public List<Mitarbeiter> alleMitarbeiterAnzeigen();
-	
-	public Kunde findKundeByName(String name);
+	public List<Mitarbeiter> alleMitarbeiterAnzeigen();	
 	
 	public Kunde findKundeById(int id);
 	
-	public Kunde createKunde(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort);
+	public Kunde createKunde(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort);
 	
 	public void deleteKunde(int id);
 	
 	public List<Kunde> alleKundenAnzeigen();
 	
-	public Buch findBuchByName(String titel);
-	
 	public Buch findBuchById(int id);
 	
-	public Buch createBuch(String titel, String autor, Date erscheinungsjahr, int anzahl);
+	public Buch createBuch(int id, String titel, String autor, Date erscheinungsjahr, int anzahl);
 	
 	public void deleteBuch(int id);
 	

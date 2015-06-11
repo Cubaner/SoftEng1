@@ -37,8 +37,8 @@ public class Buchverwaltung {
 			return session;
 	}
 	
-	public void neuesBuchHinzufuegen(String titel, String autor, Date erscheinungsjahr, int anzahl) throws BuecherweltException {
-			Buch buch = dao.createBuch(titel, autor, erscheinungsjahr, anzahl);
+	public void neuesBuchHinzufuegen(int id, String titel, String autor, Date erscheinungsjahr, int anzahl) throws BuecherweltException {
+			Buch buch = dao.createBuch(id, titel, autor, erscheinungsjahr, anzahl);
 			if (buch == null) {
 				throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da das Buch bereits existiert");
 			}
@@ -54,8 +54,8 @@ public class Buchverwaltung {
 		return alleBuecher;
 	}
 	
-	public Buch buchSuchen(String titel) {
-		Buch buch = dao.findBuchByName(titel);
+	public Buch buchSuchen(int id) {
+		Buch buch = dao.findBuchById(id);
 		return buch;
 	}
 	
@@ -76,7 +76,7 @@ public class Buchverwaltung {
 		Date erscheinungsjahr = buchNeu.getErscheinungsjahr();
 		int anzahl = buchNeu.getAnzahl();
 		anzahl = anzahl + 1;
-		neuesBuchHinzufuegen(titel, autor, erscheinungsjahr, anzahl);
+		neuesBuchHinzufuegen(id, titel, autor, erscheinungsjahr, anzahl);
 	}
 	
 	public void anzahlVerringern(int id) throws BuecherweltException {
@@ -87,6 +87,6 @@ public class Buchverwaltung {
 		Date erscheinungsjahr = buchNeu.getErscheinungsjahr();
 		int anzahl = buchNeu.getAnzahl();
 		anzahl = anzahl - 1;
-		neuesBuchHinzufuegen(titel, autor, erscheinungsjahr, anzahl);
+		neuesBuchHinzufuegen(id, titel, autor, erscheinungsjahr, anzahl);
 	}
 }

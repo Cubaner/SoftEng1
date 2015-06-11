@@ -7,6 +7,8 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.jboss.logging.Logger;
+
 import de.bw.entities.Buch;
 import de.bw.entities.BuecherweltSession;
 import de.bw.entities.Kunde;
@@ -19,6 +21,8 @@ public class BuecherweltDAO implements BuecherweltDAOLocal{
 
 	@PersistenceContext
 	private EntityManager em;
+	
+	private static final Logger logger = Logger.getLogger(BuecherweltDAO.class);
 	
 	public BuecherweltSession findSessionById(int id) {
 		return em.find(BuecherweltSession.class, id);
@@ -41,17 +45,14 @@ public class BuecherweltDAO implements BuecherweltDAOLocal{
 		em.remove(session);
 	}
 	
-	public Mitarbeiter findMitarbeiterByName(String benutzername){
-		return em.find(Mitarbeiter.class, benutzername);
-	}
-	
 	public Mitarbeiter findMitarbeiterById(int id){
 		return em.find(Mitarbeiter.class, id);
 	}
 	
-	public Mitarbeiter createMitarbeiter(int id, String vorname, String nachname, String plz, String ort, String strasse, String hausnummer, String email, String benutzername, String passwort)  {
-		if(findMitarbeiterByName(benutzername) == null) {
-			Mitarbeiter mitarbeiter = new Mitarbeiter(id, vorname, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
+	public Mitarbeiter createMitarbeiter(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort)  {
+		if(findMitarbeiterById(id) == null) {
+			logger.info("ID: " + id);
+			Mitarbeiter mitarbeiter = new Mitarbeiter(vorname, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
 			em.persist(mitarbeiter);	
 			return mitarbeiter;
 		}
@@ -72,16 +73,12 @@ public class BuecherweltDAO implements BuecherweltDAOLocal{
 		return alleMitarbeiter;
 	}
 	
-	public Kunde findKundeByName(String benutzername){
-		return em.find(Kunde.class, benutzername);
-	}
-	
 	public Kunde findKundeById(int id){
 		return em.find(Kunde.class, id);
 	}
 	
-	public Kunde createKunde(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort)  {
-		if(findKundeByName(benutzername) == null) {
+	public Kunde createKunde(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort)  {
+		if(findKundeById(id) == null) {
 			Kunde kunde = new Kunde(vorname, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
 			em.persist(kunde);	
 			return kunde;
@@ -101,18 +98,14 @@ public class BuecherweltDAO implements BuecherweltDAOLocal{
 		List<Kunde> alleKunden = new ArrayList<Kunde>();
 		alleKunden = em.createQuery("SELECT * FROM Kunde").getResultList();
 		return alleKunden;
-	}
-	
-	public Buch findBuchByName(String titel){
-		return em.find(Buch.class, titel);
-	}
+	}	
 	
 	public Buch findBuchById(int id){
 		return em.find(Buch.class, id);
 	}
 	
-	public Buch createBuch(String titel, String autor, Date erscheinungsjahr, int anzahl) {
-		if(findBuchByName(titel) == null) {
+	public Buch createBuch(int id, String titel, String autor, Date erscheinungsjahr, int anzahl) {
+		if(findBuchById(id) == null) {
 			Buch buch = new Buch(titel, autor, erscheinungsjahr, anzahl);
 			em.persist(buch);
 			return buch;
