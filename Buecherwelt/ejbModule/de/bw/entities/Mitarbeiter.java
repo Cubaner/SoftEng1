@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,7 +15,7 @@ public class Mitarbeiter implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy=GenerationType.TABLE)
 	private int id;
 	
 	private String vorname;
@@ -22,7 +23,7 @@ public class Mitarbeiter implements Serializable{
 	private String plz;
 	private String ort;
 	private String strasse;
-	private int hausnummer;
+	private String hausnummer;
 	private String email;
 	@Column(nullable=false)
 	private String benutzername;
@@ -32,20 +33,8 @@ public class Mitarbeiter implements Serializable{
 		super();
 	}
 		
-	public Mitarbeiter(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
+	public Mitarbeiter(int id, String vorname, String nachname, String plz, String ort, String strasse, String hausnummer, String email, String benutzername, String passwort) {
 		this.id = id;
-		this.vorname = vorname;
-		this.nachname = nachname;
-		this.plz = plz;
-		this.ort = ort;
-		this.strasse = strasse;
-		this.hausnummer = hausnummer;
-		this.email = email;
-		this.benutzername = benutzername;
-		this.passwort = passwort;
-	}
-	
-	public Mitarbeiter(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {		
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.plz = plz;
@@ -85,7 +74,7 @@ public class Mitarbeiter implements Serializable{
 		return this.strasse;
 	}
 	
-	public int getHausnummer() {
+	public String getHausnummer() {
 		return this.hausnummer;
 	}
 	
@@ -121,7 +110,7 @@ public class Mitarbeiter implements Serializable{
 		this.strasse = strasse;
 	}
 	
-	public void setHausnummer(int hausnummer) {
+	public void setHausnummer(String hausnummer) {
 		this.hausnummer = hausnummer;
 	}
 	

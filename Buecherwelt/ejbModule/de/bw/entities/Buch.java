@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,7 +15,7 @@ public class Buch implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy=GenerationType.TABLE)
 	private int id;
 	
 	private String titel;
@@ -71,13 +72,5 @@ public class Buch implements Serializable{
 	
 	public void setAnzahl(int anzahl) {
 		this.anzahl = anzahl;
-	}
-	
-	public void anzahlVerringern() {
-		this.anzahl = anzahl - 1;
-	}
-	
-	public void anzahlErhoehen() {
-		this.anzahl = anzahl + 1;
 	}
 }

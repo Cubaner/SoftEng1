@@ -25,7 +25,7 @@ public interface BuecherweltDAOLocal {
 	
 	public Mitarbeiter findMitarbeiterById(int id);
 	
-	public Mitarbeiter createMitarbeiter(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort);
+	public Mitarbeiter createMitarbeiter(int id, String vorname, String nachname, String plz, String ort, String strasse, String hausnummer, String email, String benutzername, String passwort);
 	
 	public void deleteMitarbeiter(int id);
 	
@@ -39,6 +39,8 @@ public interface BuecherweltDAOLocal {
 	
 	public void deleteKunde(int id);
 	
+	public List<Kunde> alleKundenAnzeigen();
+	
 	public Buch findBuchByName(String titel);
 	
 	public Buch findBuchById(int id);
@@ -46,4 +48,6 @@ public interface BuecherweltDAOLocal {
 	public Buch createBuch(String titel, String autor, Date erscheinungsjahr, int anzahl);
 	
 	public void deleteBuch(int id);
+	
+	public List<Buch> alleBuecherAnzeigen();
 }

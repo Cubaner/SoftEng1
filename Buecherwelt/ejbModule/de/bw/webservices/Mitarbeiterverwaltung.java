@@ -60,12 +60,15 @@ public class Mitarbeiterverwaltung {
 		return response;
 	}
 	
-	public void mitarbeiterLoeschen(int id){
-		dao.deleteMitarbeiter(id);
+	public void neuenMitarbeiterHinzufuegen(int id, String vorname, String nachname, String plz, String ort, String strasse, String hausnummer, String email, String benutzername, String passwort) throws BuecherweltException {
+		Mitarbeiter mitarbeiter = dao.createMitarbeiter(id, vorname, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
+			if (mitarbeiter == null) {
+				throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da der Benutzer bereits existiert");
+			}
 	}
 	
-	public Mitarbeiter mitarbeiterSuchen(){
-		return null;
+	public void mitarbeiterLoeschen(int id){
+		dao.deleteMitarbeiter(id);
 	}
 	
 	public List<Mitarbeiter> getAllMitarbeiter(){
@@ -75,10 +78,7 @@ public class Mitarbeiterverwaltung {
 		
 	}
 	
-	public void neuenMitarbeiterHinzufuegen(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) throws BuecherweltException {
-			Mitarbeiter mitarbeiter = dao.createMitarbeiter(vorname, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
-			if (mitarbeiter == null) {
-				throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da der Benutzer bereits existiert");
-			}
+	public Mitarbeiter mitarbeiterSuchen(){
+		return null;
 	}
 }

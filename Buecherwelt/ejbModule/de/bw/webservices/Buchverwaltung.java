@@ -49,39 +49,44 @@ public class Buchverwaltung {
 	}
 	
 	public List<Buch> getAllBuecher() {
-		List<Buch> buecher = new ArrayList<Buch>();
-		return buecher;
+		List<Buch> alleBuecher = new ArrayList<Buch>();
+		alleBuecher = dao.alleBuecherAnzeigen();
+		return alleBuecher;
 	}
 	
-	public List<Buch> buchSuchen(String titel) {
-		//mit for-Schleife über jpa füllen
-		List<Buch> buecher = new ArrayList<Buch>();
-		//Alles aus der Datenbank holen und anschließend mit titel vergleichen, es sei denn es funktioniert,
-		//dass man direkt in der Datenbank sucht (select * from Buch where titel = titel;
-		return buecher;
+	public Buch buchSuchen(String titel) {
+		Buch buch = dao.findBuchByName(titel);
+		return buch;
 	}
 	
-	public void titelBearbeiten(String titel, String autor) {
-		//einfach mit SQL-Befehlen?
+	/**public void buchBearbeiten(int id, String titel, String autor, Date erscheinungsjahr, int anzahl) throws BuecherweltException {
+		Buch buchNeu = dao.findBuchById(id);
+		dao.deleteBuch(id);
+		buchNeu.setAutor();
+		Date erscheinungsjahr = buchNeu.getErscheinungsjahr();
+		int anzahl = buchNeu.getAnzahl();
+		neuesBuchHinzufuegen(titel, autor, erscheinungsjahr, anzahl);
+	}**/
+	
+	public void anzahlErhoehen(int id) throws BuecherweltException {
+		Buch buchNeu = dao.findBuchById(id);
+		dao.deleteBuch(id);
+		String titel = buchNeu.getTitel();
+		String autor = buchNeu.getAutor();
+		Date erscheinungsjahr = buchNeu.getErscheinungsjahr();
+		int anzahl = buchNeu.getAnzahl();
+		anzahl = anzahl + 1;
+		neuesBuchHinzufuegen(titel, autor, erscheinungsjahr, anzahl);
 	}
 	
-	public void autorBearbeiten(String titel, String autor) {
-		//einfach mit SQL-Befehlen?
-	}
-	
-	public void erscheinungsjahrBearbeiten(String titel, String autor, Date erscheinungsjahr) {
-		//einfach mit SQL-Befehlen?
-	}
-	
-	public void anzahlBearbeiten(String titel, String autor, int anzahl) {
-		//einfach mit SQL-Befehlen?
-	}
-	
-	public void anzahlErhoehen() {
-		//anzahl = anzahl + 1;
-	}
-	
-	public void anzahlVerringern() {
-		//anzahl = anzahl - 1;
+	public void anzahlVerringern(int id) throws BuecherweltException {
+		Buch buchNeu = dao.findBuchById(id);
+		dao.deleteBuch(id);
+		String titel = buchNeu.getTitel();
+		String autor = buchNeu.getAutor();
+		Date erscheinungsjahr = buchNeu.getErscheinungsjahr();
+		int anzahl = buchNeu.getAnzahl();
+		anzahl = anzahl - 1;
+		neuesBuchHinzufuegen(titel, autor, erscheinungsjahr, anzahl);
 	}
 }

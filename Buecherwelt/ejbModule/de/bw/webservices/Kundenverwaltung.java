@@ -28,9 +28,9 @@ public class Kundenverwaltung {
 	private BuecherweltDAOLocal dao;
 
 	public void kundeHinzufuegen(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) throws BuecherweltException {
-			Kunde kunde = dao.createKunde(vorname, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
-			if (kunde == null) {
-				throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da der Benutzer bereits existiert");
+		Kunde kunde = dao.createKunde(vorname, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
+		if (kunde == null) {
+			throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da der Benutzer bereits existiert");
 			}
 	}
 	
@@ -49,10 +49,7 @@ public class Kundenverwaltung {
 	
 	public List<Kunde> getAllKunden() {
 		List<Kunde> alleKunden = new ArrayList<Kunde>();
-		/*for(Kunde neuerKunde : kundenDatenbank(select * from kunden) {
-		kunden.add(neuerKunde);
-		}
-		*/
+		alleKunden = dao.alleKundenAnzeigen();
 		return alleKunden;
 	}
 	
@@ -64,10 +61,8 @@ public class Kundenverwaltung {
 		return null;
 	}
 	
-	public void buchInListeEintragen(String nachname, String titel) {
-		kundeSuchen(nachname);
-		Buchverwaltung newBuchverwaltung = new Buchverwaltung();
-		newBuchverwaltung.buchSuchen(titel);
+	public void buchInListeEintragen(int id, String titel) {
+		
 	}
 	
 	public void buchAusListeEntfernen(String nachname, String titel) {

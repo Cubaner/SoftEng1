@@ -1,15 +1,15 @@
 package de.bw.entities;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
-//import java.sql.Timestamp;
 import java.util.ArrayList;
-//import java.util.Date;
-import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,7 +18,7 @@ public class Kunde implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy=GenerationType.TABLE)
 	private int id;
 	
 	private String vorname;
@@ -59,7 +59,7 @@ public class Kunde implements Serializable {
 		this.id = id;
 	}
 	
-	public void addAusleihe(Buch buch) {
+	/**public void addAusleihe(Buch buch) {
 		if(buch.getAnzahl() >= 1) {
 		Date leihdatum = new Date();
 		Timestamp currentTime = new Timestamp(leihdatum.getTime());
@@ -70,7 +70,7 @@ public class Kunde implements Serializable {
 		else {
 			System.out.println("Nicht genügend Bücher im Bestand!");
 		}
-	}
+	}**/
 
 	public ArrayList<Ausleihe> getAusleihListe() {
 		return this.ausleihListe;
