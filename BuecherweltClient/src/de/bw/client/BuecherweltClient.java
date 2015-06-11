@@ -14,7 +14,9 @@ import de.bw.webservices.MitarbeiterverwaltungService;
  *
  */
 public class BuecherweltClient {
-		
+	
+	private static int id;
+	
 	private static Mitarbeiterverwaltung remoteSystem;
 
 	/**
@@ -28,7 +30,6 @@ public class BuecherweltClient {
 	}
 	
 	private static void szenarioJoe() throws BuecherweltException_Exception {
-		int id = 3;
 		String vorname = "vorname";
 		String nachname = "nachname";
 		String plz = "plz";
