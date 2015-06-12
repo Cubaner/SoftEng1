@@ -59,34 +59,33 @@ public class Buchverwaltung {
 		return buch;
 	}
 	
-	/**public void buchBearbeiten(int id, String titel, String autor, Date erscheinungsjahr, int anzahl) throws BuecherweltException {
-		Buch buchNeu = dao.findBuchById(id);
-		dao.deleteBuch(id);
-		buchNeu.setAutor();
-		Date erscheinungsjahr = buchNeu.getErscheinungsjahr();
-		int anzahl = buchNeu.getAnzahl();
-		neuesBuchHinzufuegen(titel, autor, erscheinungsjahr, anzahl);
-	}**/
+	public void buchBearbeiten(int id, String titel, String autor, Date erscheinungsjahr, int anzahl) throws BuecherweltException {
+		Buch buch = dao.findBuchById(id);
+		buch.setTitel(titel);
+		buch.setAutor(autor);
+		buch.setErscheinungsjahr(erscheinungsjahr);
+		buch.setAnzahl(anzahl);
+	}
 	
 	public void anzahlErhoehen(int id) throws BuecherweltException {
-		Buch buchNeu = dao.findBuchById(id);
-		dao.deleteBuch(id);
-		String titel = buchNeu.getTitel();
-		String autor = buchNeu.getAutor();
-		Date erscheinungsjahr = buchNeu.getErscheinungsjahr();
-		int anzahl = buchNeu.getAnzahl();
-		anzahl = anzahl + 1;
-		neuesBuchHinzufuegen(id, titel, autor, erscheinungsjahr, anzahl);
+		Buch buch = dao.findBuchById(id);
+		int anzahlAlt = buch.getAnzahl();
+		buch.setAnzahl(anzahlAlt + 1);
 	}
 	
 	public void anzahlVerringern(int id) throws BuecherweltException {
-		Buch buchNeu = dao.findBuchById(id);
-		dao.deleteBuch(id);
-		String titel = buchNeu.getTitel();
-		String autor = buchNeu.getAutor();
-		Date erscheinungsjahr = buchNeu.getErscheinungsjahr();
-		int anzahl = buchNeu.getAnzahl();
-		anzahl = anzahl - 1;
-		neuesBuchHinzufuegen(id, titel, autor, erscheinungsjahr, anzahl);
+		Buch buch = dao.findBuchById(id);
+		if (buch.getAnzahl() > 0) {
+			buch.setAnzahl(buch.getAnzahl() - 1);
+		}
+		else { 
+			new BuecherweltException(40, "Buch vergriffen!");
+		}
+	}
+	
+	public Buch getBuchMitIdEins() {
+		int id = 1;
+		Buch buch = dao.findBuchById(id);
+		return buch;
 	}
 }
