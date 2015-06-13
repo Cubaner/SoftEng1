@@ -13,8 +13,12 @@ import org.jboss.ws.api.annotation.WebContext;
 import de.bw.dao.BuecherweltDAOLocal;
 import de.bw.entities.Buch;
 import de.bw.entities.BuecherweltSession;
+import de.bw.entities.Mitarbeiter;
 import de.bw.exception.BuecherweltException;
+import de.bw.exception.InvalidLoginException;
 import de.bw.exception.NoSessionException;
+import de.bw.login.ReturncodeResponse;
+import de.bw.login.UserLoginResponse;
 
 /**
  * @author user
@@ -37,7 +41,33 @@ public class Buchverwaltung {
 			return session;
 	}
 	
-	public void neuesBuchHinzufuegen(int id, String titel, String autor, Date erscheinungsjahr, int anzahl) throws BuecherweltException {
+	public UserLoginResponse login(int id, String benutzername, String passwort) {
+		UserLoginResponse response = new UserLoginResponse();
+		try {
+			Mitarbeiter mitarbeiter = this.dao.findMitarbeiterById(id);		
+			if (mitarbeiter != null && mitarbeiter.getPasswort().equals(passwort)) {
+				int sessionId = dao.createSession(mitarbeiter);			
+				response.setSessionId(sessionId);
+			}
+			else {				
+				throw new InvalidLoginException("Login fehlgeschlagen, da Mitarbeiter unbekannt oder Passwort falsch. benutzername="+mitarbeiter.getBenutzername());
+			}
+		}
+		catch (BuecherweltException e) {
+			response.setReturnCode(e.getErrorCode());
+			response.setMessage(e.getMessage());
+		}
+		return response;
+	}
+	
+	public ReturncodeResponse logout(int sessionId) {
+		dao.closeSession(sessionId);
+		ReturncodeResponse response = new ReturncodeResponse();
+		
+		return response;
+	}
+	
+	public void neuesBuchHinzufuegen(int id, String titel, String autor, int erscheinungsjahr, int anzahl) throws BuecherweltException {
 			Buch buch = dao.createBuch(id, titel, autor, erscheinungsjahr, anzahl);
 			if (buch == null) {
 				throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da das Buch bereits existiert");
@@ -59,7 +89,7 @@ public class Buchverwaltung {
 		return buch;
 	}
 	
-	public void buchBearbeiten(int id, String titel, String autor, Date erscheinungsjahr, int anzahl) throws BuecherweltException {
+	public void buchBearbeiten(int id, String titel, String autor, int erscheinungsjahr, int anzahl) throws BuecherweltException {
 		Buch buch = dao.findBuchById(id);
 		buch.setTitel(titel);
 		buch.setAutor(autor);
@@ -84,7 +114,7 @@ public class Buchverwaltung {
 	}
 	
 	public Buch getBuchMitIdEins() {
-		int id = 1;
+		int id = 3;
 		Buch buch = dao.findBuchById(id);
 		return buch;
 	}

@@ -1,5 +1,5 @@
 package de.bw.dao;
-import java.util.Date;
+
 import java.util.List;
 
 import javax.ejb.Local;
@@ -39,7 +39,7 @@ public interface BuecherweltDAOLocal {
 	
 	public Buch findBuchById(int id);
 	
-	public Buch createBuch(int id, String titel, String autor, Date erscheinungsjahr, int anzahl);
+	public Buch createBuch(int id, String titel, String autor, int erscheinungsjahr, int anzahl);
 	
 	public void deleteBuch(int id);
 	

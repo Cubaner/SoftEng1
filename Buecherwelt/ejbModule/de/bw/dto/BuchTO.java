@@ -10,12 +10,12 @@ public class BuchTO implements Serializable{
 	int id;
 	String titel;
 	String autor;
-	Date erscheinungsjahr;
+	int erscheinungsjahr;
 	int anzahl;
 	
 	public BuchTO(){}
 	
-	public BuchTO(int id, String titel, String autor, Date erscheinungsjahr, int anzahl){
+	public BuchTO(int id, String titel, String autor, int erscheinungsjahr, int anzahl){
 		super();
 		this.id = id;
 		this.titel = titel;
@@ -47,11 +47,11 @@ public class BuchTO implements Serializable{
 		this.autor = autor;
 	}
 
-	public Date getErscheinungsjahr() {
+	public int getErscheinungsjahr() {
 		return erscheinungsjahr;
 	}
 
-	public void setErscheinungsjahr(Date erscheinungsjahr) {
+	public void setErscheinungsjahr(int erscheinungsjahr) {
 		this.erscheinungsjahr = erscheinungsjahr;
 	}
 

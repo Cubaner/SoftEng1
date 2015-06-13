@@ -20,14 +20,14 @@ public class Buch implements Serializable{
 	
 	private String titel;
 	private String autor;
-	private Date erscheinungsjahr;
+	private int erscheinungsjahr;
 	private int anzahl;
 	
 	public Buch() {
 		super();
 	}
 	
-	public Buch(String titel, String autor, Date erscheinungsjahr, int anzahl) {
+	public Buch(String titel, String autor, int erscheinungsjahr, int anzahl) {
 		this.titel = titel;
 		this.autor = autor;
 		this.erscheinungsjahr = erscheinungsjahr;
@@ -50,7 +50,7 @@ public class Buch implements Serializable{
 		return this.autor;
 	}
 
-	public Date getErscheinungsjahr() {
+	public int getErscheinungsjahr() {
 		return this.erscheinungsjahr;
 	}
 	
@@ -66,7 +66,7 @@ public class Buch implements Serializable{
 		this.autor = autor;
 	}
 	
-	public void setErscheinungsjahr(Date erscheinungsjahr) {
+	public void setErscheinungsjahr(int erscheinungsjahr) {
 		this.erscheinungsjahr = erscheinungsjahr;
 	}
 	
