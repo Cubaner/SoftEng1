@@ -8,16 +8,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für mitarbeiterSuchenResponse complex type.
+ * <p>Java-Klasse für buchSuchenResponse complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="mitarbeiterSuchenResponse">
+ * &lt;complexType name="buchSuchenResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://webservices.bw.de/}mitarbeiter" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://webservices.bw.de/}buch" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,23 +27,23 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "mitarbeiterSuchenResponse", propOrder = {
+@XmlType(name = "buchSuchenResponse", propOrder = {
     "_return"
 })
-public class MitarbeiterSuchenResponse {
+public class BuchSuchenResponse {
 
     @XmlElement(name = "return")
-    protected Mitarbeiter _return;
+    protected Buch _return;
 
     /**
      * Ruft den Wert der return-Eigenschaft ab.
      * 
      * @return
      *     possible object is
-     *     {@link Mitarbeiter }
+     *     {@link Buch }
      *     
      */
-    public Mitarbeiter getReturn() {
+    public Buch getReturn() {
         return _return;
     }
 
@@ -52,10 +52,10 @@ public class MitarbeiterSuchenResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Mitarbeiter }
+     *     {@link Buch }
      *     
      */
-    public void setReturn(Mitarbeiter value) {
+    public void setReturn(Buch value) {
         this._return = value;
     }
 

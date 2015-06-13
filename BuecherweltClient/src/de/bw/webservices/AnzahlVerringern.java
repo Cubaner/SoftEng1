@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für mitarbeiterLoeschen complex type.
+ * <p>Java-Klasse für anzahlVerringern complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="mitarbeiterLoeschen">
+ * &lt;complexType name="anzahlVerringern">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -26,10 +26,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "mitarbeiterLoeschen", propOrder = {
+@XmlType(name = "anzahlVerringern", propOrder = {
     "arg0"
 })
-public class MitarbeiterLoeschen {
+public class AnzahlVerringern {
 
     protected int arg0;
 
