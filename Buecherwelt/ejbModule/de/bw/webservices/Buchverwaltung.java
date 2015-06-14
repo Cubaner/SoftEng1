@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import org.jboss.ws.api.annotation.WebContext;
@@ -67,6 +68,8 @@ public class Buchverwaltung {
 		return response;
 	}
 	
+	
+	
 	public void neuesBuchHinzufuegen(int id, String titel, String autor, int erscheinungsjahr, int anzahl) throws BuecherweltException {
 			Buch buch = dao.createBuch(id, titel, autor, erscheinungsjahr, anzahl);
 			if (buch == null) {
@@ -112,6 +115,7 @@ public class Buchverwaltung {
 			new BuecherweltException(40, "Buch vergriffen!");
 		}
 	}
+	
 	
 	public Buch getBuchMitIdEins() {
 		int id = 3;
