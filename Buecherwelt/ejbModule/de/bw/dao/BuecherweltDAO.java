@@ -69,7 +69,7 @@ public class BuecherweltDAO implements BuecherweltDAOLocal{
 
 	public List<Mitarbeiter> alleMitarbeiterAnzeigen() {
 		List<Mitarbeiter> alleMitarbeiter = new ArrayList<Mitarbeiter>();
-		alleMitarbeiter = em.createQuery("SELECT * FROM Mitarbeiter").getResultList();
+		alleMitarbeiter = em.createQuery("SELECT vorname, nachname FROM Mitarbeiter").getResultList();
 		return alleMitarbeiter;
 	}
 	
@@ -96,7 +96,7 @@ public class BuecherweltDAO implements BuecherweltDAOLocal{
 	
 	public List<Kunde> alleKundenAnzeigen() {
 		List<Kunde> alleKunden = new ArrayList<Kunde>();
-		alleKunden = em.createQuery("SELECT * FROM Kunde").getResultList();
+		alleKunden = em.createQuery("SELECT vorname, nachname FROM Kunde").getResultList();
 		return alleKunden;
 	}	
 	
@@ -123,7 +123,7 @@ public class BuecherweltDAO implements BuecherweltDAOLocal{
 	
 	public List<Buch> alleBuecherAnzeigen() {
 		List<Buch> alleBuecher = new ArrayList<Buch>();
-		alleBuecher = em.createQuery("SELECT * FROM Buch").getResultList();
+		alleBuecher = em.createQuery("SELECT titel FROM Buch").getResultList();
 		return alleBuecher;
 	}
 }
