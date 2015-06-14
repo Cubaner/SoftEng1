@@ -10,8 +10,8 @@ import javax.jws.WebService;
 import org.jboss.ws.api.annotation.WebContext;
 
 import de.bw.dao.BuecherweltDAOLocal;
+import de.bw.entities.Buch;
 import de.bw.entities.Kunde;
-import de.bw.entities.Mitarbeiter;
 import de.bw.exception.BuecherweltException;
 
 
@@ -38,36 +38,36 @@ public class Kundenverwaltung {
 		dao.deleteKunde(id);
 	}
 	
-	public List<Kunde> kundeSuchen(String nachname) {
-		List<Kunde> kunden = new ArrayList<Kunde>();
-		/*for(Kunde neuerKunde : kundenDatenbank(select * from kunden wherer nachname like nachname) {
-		kunden.add(neuerKunde);
-		}
-		*/
-		return kunden;		
-	}
-	
 	public List<Kunde> getAllKunden() {
 		List<Kunde> alleKunden = new ArrayList<Kunde>();
 		alleKunden = dao.alleKundenAnzeigen();
 		return alleKunden;
 	}
 	
-	public Kunde getVornameById(int id) {
-		return null;
+	public Kunde kundeSuchen(int id) {
+		Kunde kunde = dao.findKundeById(id);
+		return kunde;
 	}
 	
-	public Kunde getNachnameById(int id) {
-		return null;
+	public void kundeBearbeiten(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
+		Kunde kunde = dao.findKundeById(id);
+		kunde.setVorname(vorname);
+		kunde.setNachname(nachname);
+		kunde.setPlz(plz);
+		kunde.setOrt(ort);
+		kunde.setStrasse(strasse);
+		kunde.setHausnummer(hausnummer);
+		kunde.setEmail(email);
+		kunde.setBenutzername(benutzername);
+		kunde.setPasswort(passwort);
 	}
 	
-	public void buchInListeEintragen(int id, String titel) {
+	public void buchInListeEintragen(int id) {
+		Buch buch = dao.findBuchById(id);
+		
 		
 	}
 	
 	public void buchAusListeEntfernen(int id, String nachname, String titel) {
-		kundeSuchen(nachname);
-		Buchverwaltung newBuchverwaltung = new Buchverwaltung();
-		newBuchverwaltung.buchSuchen(id);
 	}
 }

@@ -81,4 +81,17 @@ public class Mitarbeiterverwaltung {
 	public Mitarbeiter mitarbeiterSuchen(){
 		return null;
 	}
+	
+	public void mitarbeiterBearbeiten(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
+		Mitarbeiter mitarbeiter = dao.findMitarbeiterById(id);
+		mitarbeiter.setVorname(vorname);
+		mitarbeiter.setNachname(nachname);
+		mitarbeiter.setPlz(plz);
+		mitarbeiter.setOrt(ort);
+		mitarbeiter.setStrasse(strasse);
+		mitarbeiter.setHausnummer(hausnummer);
+		mitarbeiter.setEmail(email);
+		mitarbeiter.setBenutzername(benutzername);
+		mitarbeiter.setPasswort(passwort);
+	}
 }
