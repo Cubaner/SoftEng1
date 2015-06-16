@@ -53,47 +53,67 @@
       <env-entry>
       <env-entry-name>de.bw.dao.DataBuilder/vorname2</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>test</env-entry-value>
+        <env-entry-value>Kunde</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.bw.dao.DataBuilder/nachname2</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>test2</env-entry-value>
+        <env-entry-value>Kunde</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.bw.dao.DataBuilder/plz2</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>test3</env-entry-value>
+        <env-entry-value>Kunde</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.bw.dao.DataBuilder/ort2</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>test4</env-entry-value>
+        <env-entry-value>Kunde</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.bw.dao.DataBuilder/strasse2</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>test5</env-entry-value>
+        <env-entry-value>Kunde</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.bw.dao.DataBuilder/hausnummer2</env-entry-name>
         <env-entry-type>int</env-entry-type>
-        <env-entry-value>6</env-entry-value>
+        <env-entry-value>7</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.bw.dao.DataBuilder/email2</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>test7</env-entry-value>
+        <env-entry-value>Kunde</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.bw.dao.DataBuilder/benutzername2</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>test8</env-entry-value>
+        <env-entry-value>Kunde</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.bw.dao.DataBuilder/passwort2</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>test9</env-entry-value>
+        <env-entry-value>Kunde</env-entry-value>
+      </env-entry>
+            <env-entry>
+      <env-entry-name>de.bw.dao.DataBuilder/titel</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Buch</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.bw.dao.DataBuilder/autor</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Stephen King</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.bw.dao.DataBuilder/erscheinungsjahr</env-entry-name>
+        <env-entry-type>int</env-entry-type>
+        <env-entry-value>2015</env-entry-value>
+      </env-entry>
+       <env-entry>
+        <env-entry-name>de.bw.dao.DataBuilder/anzahl</env-entry-name>
+        <env-entry-type>int</env-entry-type>
+        <env-entry-value>8</env-entry-value>
       </env-entry>
     </session>
   </enterprise-beans>

@@ -1,24 +1,25 @@
 package de.bw.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
-
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.Table;
 
+/**
+ * @author Jonas Brandhorst/Johann Schäfer
+ * Entity Kunde repräsentiert einen Kunden. Durch die Anbindung an die H2-Datenbank wird hier 
+ * eine entsprechende Tabelle erzeugt, welche alle Kunden der Bibliothek hält.
+ */
 @Entity
 @Table
 public class Kunde implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id @GeneratedValue(strategy=GenerationType.TABLE)
+	@Id @GeneratedValue
 	private int id;
 	
 	private String vorname;
@@ -28,10 +29,10 @@ public class Kunde implements Serializable {
 	private String strasse;
 	private int hausnummer;
 	private String email;
+	@Column(nullable=false, unique=true)
 	private String benutzername;
 	private String passwort;
 	
-	private ArrayList<Ausleihe> ausleihListe;
 	
 	public Kunde(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) {
 
@@ -44,7 +45,6 @@ public class Kunde implements Serializable {
 		this.email = email;
 		this.benutzername = benutzername;
 		this.passwort = passwort;
-		setAusleihListe(new ArrayList<Ausleihe>());
 	}
 		
 	public Kunde() {
@@ -57,27 +57,6 @@ public class Kunde implements Serializable {
 	
 	public void setId(int id) {
 		this.id = id;
-	}
-	
-	/**public void addAusleihe(Buch buch) {
-		if(buch.getAnzahl() >= 1) {
-		Date leihdatum = new Date();
-		Timestamp currentTime = new Timestamp(leihdatum.getTime());
-		Ausleihe newAusleihe = new Ausleihe(currentTime, this, buch);
-		buch.anzahlVerringern();
-		ausleihListe.add(newAusleihe);
-		}
-		else {
-			System.out.println("Nicht genügend Bücher im Bestand!");
-		}
-	}**/
-
-	public ArrayList<Ausleihe> getAusleihListe() {
-		return this.ausleihListe;
-	}
-
-	public void setAusleihListe(ArrayList<Ausleihe> ausleihListe) {
-		this.ausleihListe = ausleihListe;
 	}
 	
 	public String getVorname() {

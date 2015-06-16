@@ -24,27 +24,23 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _AnzahlErhoehen_QNAME = new QName("http://webservices.bw.de/", "anzahlErhoehen");
-    private final static QName _AnzahlVerringernResponse_QNAME = new QName("http://webservices.bw.de/", "anzahlVerringernResponse");
-    private final static QName _GetAllBuecher_QNAME = new QName("http://webservices.bw.de/", "getAllBuecher");
-    private final static QName _BuchBearbeitenResponse_QNAME = new QName("http://webservices.bw.de/", "buchBearbeitenResponse");
-    private final static QName _AnzahlErhoehenResponse_QNAME = new QName("http://webservices.bw.de/", "anzahlErhoehenResponse");
+    private final static QName _MitarbeiterLoeschenResponse_QNAME = new QName("http://webservices.bw.de/", "mitarbeiterLoeschenResponse");
+    private final static QName _MitarbeiterSuchen_QNAME = new QName("http://webservices.bw.de/", "mitarbeiterSuchen");
+    private final static QName _GetAllMitarbeiter_QNAME = new QName("http://webservices.bw.de/", "getAllMitarbeiter");
     private final static QName _LoginResponse_QNAME = new QName("http://webservices.bw.de/", "loginResponse");
-    private final static QName _BuchBearbeiten_QNAME = new QName("http://webservices.bw.de/", "buchBearbeiten");
+    private final static QName _MitarbeiterSuchenResponse_QNAME = new QName("http://webservices.bw.de/", "mitarbeiterSuchenResponse");
     private final static QName _BuecherweltException_QNAME = new QName("http://webservices.bw.de/", "BuecherweltException");
-    private final static QName _AnzahlVerringern_QNAME = new QName("http://webservices.bw.de/", "anzahlVerringern");
-    private final static QName _BuchLoeschenResponse_QNAME = new QName("http://webservices.bw.de/", "buchLoeschenResponse");
-    private final static QName _BuchSuchenResponse_QNAME = new QName("http://webservices.bw.de/", "buchSuchenResponse");
-    private final static QName _NeuesBuchHinzufuegenResponse_QNAME = new QName("http://webservices.bw.de/", "neuesBuchHinzufuegenResponse");
+    private final static QName _GetAllMitarbeiterResponse_QNAME = new QName("http://webservices.bw.de/", "getAllMitarbeiterResponse");
+    private final static QName _MitarbeiterBearbeitenResponse_QNAME = new QName("http://webservices.bw.de/", "mitarbeiterBearbeitenResponse");
+    private final static QName _MitarbeiterBearbeiten_QNAME = new QName("http://webservices.bw.de/", "mitarbeiterBearbeiten");
+    private final static QName _NeuenMitarbeiterHinzufuegenResponse_QNAME = new QName("http://webservices.bw.de/", "neuenMitarbeiterHinzufuegenResponse");
     private final static QName _Logout_QNAME = new QName("http://webservices.bw.de/", "logout");
-    private final static QName _BuchSuchen_QNAME = new QName("http://webservices.bw.de/", "buchSuchen");
-    private final static QName _BuchLoeschen_QNAME = new QName("http://webservices.bw.de/", "buchLoeschen");
+    private final static QName _NeuenMitarbeiterHinzufuegen_QNAME = new QName("http://webservices.bw.de/", "neuenMitarbeiterHinzufuegen");
+    private final static QName _LoginMitarbeiterResponse_QNAME = new QName("http://webservices.bw.de/", "loginMitarbeiterResponse");
     private final static QName _Login_QNAME = new QName("http://webservices.bw.de/", "login");
-    private final static QName _GetBuchMitIdEins_QNAME = new QName("http://webservices.bw.de/", "getBuchMitIdEins");
     private final static QName _LogoutResponse_QNAME = new QName("http://webservices.bw.de/", "logoutResponse");
-    private final static QName _NeuesBuchHinzufuegen_QNAME = new QName("http://webservices.bw.de/", "neuesBuchHinzufuegen");
-    private final static QName _GetAllBuecherResponse_QNAME = new QName("http://webservices.bw.de/", "getAllBuecherResponse");
-    private final static QName _GetBuchMitIdEinsResponse_QNAME = new QName("http://webservices.bw.de/", "getBuchMitIdEinsResponse");
+    private final static QName _MitarbeiterLoeschen_QNAME = new QName("http://webservices.bw.de/", "mitarbeiterLoeschen");
+    private final static QName _LoginMitarbeiter_QNAME = new QName("http://webservices.bw.de/", "loginMitarbeiter");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: de.bw.webservices
@@ -54,51 +50,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AnzahlErhoehenResponse }
+     * Create an instance of {@link MitarbeiterLoeschenResponse }
      * 
      */
-    public AnzahlErhoehenResponse createAnzahlErhoehenResponse() {
-        return new AnzahlErhoehenResponse();
+    public MitarbeiterLoeschenResponse createMitarbeiterLoeschenResponse() {
+        return new MitarbeiterLoeschenResponse();
     }
 
     /**
-     * Create an instance of {@link BuchBearbeitenResponse }
+     * Create an instance of {@link MitarbeiterSuchenResponse }
      * 
      */
-    public BuchBearbeitenResponse createBuchBearbeitenResponse() {
-        return new BuchBearbeitenResponse();
+    public MitarbeiterSuchenResponse createMitarbeiterSuchenResponse() {
+        return new MitarbeiterSuchenResponse();
     }
 
     /**
-     * Create an instance of {@link AnzahlErhoehen }
+     * Create an instance of {@link GetAllMitarbeiter }
      * 
      */
-    public AnzahlErhoehen createAnzahlErhoehen() {
-        return new AnzahlErhoehen();
-    }
-
-    /**
-     * Create an instance of {@link AnzahlVerringernResponse }
-     * 
-     */
-    public AnzahlVerringernResponse createAnzahlVerringernResponse() {
-        return new AnzahlVerringernResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetAllBuecher }
-     * 
-     */
-    public GetAllBuecher createGetAllBuecher() {
-        return new GetAllBuecher();
-    }
-
-    /**
-     * Create an instance of {@link BuchBearbeiten }
-     * 
-     */
-    public BuchBearbeiten createBuchBearbeiten() {
-        return new BuchBearbeiten();
+    public GetAllMitarbeiter createGetAllMitarbeiter() {
+        return new GetAllMitarbeiter();
     }
 
     /**
@@ -110,19 +82,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BuchLoeschenResponse }
+     * Create an instance of {@link MitarbeiterSuchen }
      * 
      */
-    public BuchLoeschenResponse createBuchLoeschenResponse() {
-        return new BuchLoeschenResponse();
+    public MitarbeiterSuchen createMitarbeiterSuchen() {
+        return new MitarbeiterSuchen();
     }
 
     /**
-     * Create an instance of {@link AnzahlVerringern }
+     * Create an instance of {@link MitarbeiterBearbeiten }
      * 
      */
-    public AnzahlVerringern createAnzahlVerringern() {
-        return new AnzahlVerringern();
+    public MitarbeiterBearbeiten createMitarbeiterBearbeiten() {
+        return new MitarbeiterBearbeiten();
     }
 
     /**
@@ -134,27 +106,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link NeuesBuchHinzufuegenResponse }
+     * Create an instance of {@link GetAllMitarbeiterResponse }
      * 
      */
-    public NeuesBuchHinzufuegenResponse createNeuesBuchHinzufuegenResponse() {
-        return new NeuesBuchHinzufuegenResponse();
+    public GetAllMitarbeiterResponse createGetAllMitarbeiterResponse() {
+        return new GetAllMitarbeiterResponse();
     }
 
     /**
-     * Create an instance of {@link BuchSuchenResponse }
+     * Create an instance of {@link MitarbeiterBearbeitenResponse }
      * 
      */
-    public BuchSuchenResponse createBuchSuchenResponse() {
-        return new BuchSuchenResponse();
+    public MitarbeiterBearbeitenResponse createMitarbeiterBearbeitenResponse() {
+        return new MitarbeiterBearbeitenResponse();
     }
 
     /**
-     * Create an instance of {@link BuchSuchen }
+     * Create an instance of {@link NeuenMitarbeiterHinzufuegenResponse }
      * 
      */
-    public BuchSuchen createBuchSuchen() {
-        return new BuchSuchen();
+    public NeuenMitarbeiterHinzufuegenResponse createNeuenMitarbeiterHinzufuegenResponse() {
+        return new NeuenMitarbeiterHinzufuegenResponse();
+    }
+
+    /**
+     * Create an instance of {@link NeuenMitarbeiterHinzufuegen }
+     * 
+     */
+    public NeuenMitarbeiterHinzufuegen createNeuenMitarbeiterHinzufuegen() {
+        return new NeuenMitarbeiterHinzufuegen();
     }
 
     /**
@@ -166,19 +146,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BuchLoeschen }
+     * Create an instance of {@link LoginMitarbeiterResponse }
      * 
      */
-    public BuchLoeschen createBuchLoeschen() {
-        return new BuchLoeschen();
-    }
-
-    /**
-     * Create an instance of {@link GetBuchMitIdEins }
-     * 
-     */
-    public GetBuchMitIdEins createGetBuchMitIdEins() {
-        return new GetBuchMitIdEins();
+    public LoginMitarbeiterResponse createLoginMitarbeiterResponse() {
+        return new LoginMitarbeiterResponse();
     }
 
     /**
@@ -190,27 +162,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetBuchMitIdEinsResponse }
+     * Create an instance of {@link LoginMitarbeiter }
      * 
      */
-    public GetBuchMitIdEinsResponse createGetBuchMitIdEinsResponse() {
-        return new GetBuchMitIdEinsResponse();
+    public LoginMitarbeiter createLoginMitarbeiter() {
+        return new LoginMitarbeiter();
     }
 
     /**
-     * Create an instance of {@link GetAllBuecherResponse }
+     * Create an instance of {@link MitarbeiterLoeschen }
      * 
      */
-    public GetAllBuecherResponse createGetAllBuecherResponse() {
-        return new GetAllBuecherResponse();
-    }
-
-    /**
-     * Create an instance of {@link NeuesBuchHinzufuegen }
-     * 
-     */
-    public NeuesBuchHinzufuegen createNeuesBuchHinzufuegen() {
-        return new NeuesBuchHinzufuegen();
+    public MitarbeiterLoeschen createMitarbeiterLoeschen() {
+        return new MitarbeiterLoeschen();
     }
 
     /**
@@ -238,56 +202,38 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Buch }
+     * Create an instance of {@link Mitarbeiter }
      * 
      */
-    public Buch createBuch() {
-        return new Buch();
+    public Mitarbeiter createMitarbeiter() {
+        return new Mitarbeiter();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AnzahlErhoehen }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link MitarbeiterLoeschenResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "anzahlErhoehen")
-    public JAXBElement<AnzahlErhoehen> createAnzahlErhoehen(AnzahlErhoehen value) {
-        return new JAXBElement<AnzahlErhoehen>(_AnzahlErhoehen_QNAME, AnzahlErhoehen.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "mitarbeiterLoeschenResponse")
+    public JAXBElement<MitarbeiterLoeschenResponse> createMitarbeiterLoeschenResponse(MitarbeiterLoeschenResponse value) {
+        return new JAXBElement<MitarbeiterLoeschenResponse>(_MitarbeiterLoeschenResponse_QNAME, MitarbeiterLoeschenResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AnzahlVerringernResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link MitarbeiterSuchen }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "anzahlVerringernResponse")
-    public JAXBElement<AnzahlVerringernResponse> createAnzahlVerringernResponse(AnzahlVerringernResponse value) {
-        return new JAXBElement<AnzahlVerringernResponse>(_AnzahlVerringernResponse_QNAME, AnzahlVerringernResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "mitarbeiterSuchen")
+    public JAXBElement<MitarbeiterSuchen> createMitarbeiterSuchen(MitarbeiterSuchen value) {
+        return new JAXBElement<MitarbeiterSuchen>(_MitarbeiterSuchen_QNAME, MitarbeiterSuchen.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllBuecher }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllMitarbeiter }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAllBuecher")
-    public JAXBElement<GetAllBuecher> createGetAllBuecher(GetAllBuecher value) {
-        return new JAXBElement<GetAllBuecher>(_GetAllBuecher_QNAME, GetAllBuecher.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuchBearbeitenResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "buchBearbeitenResponse")
-    public JAXBElement<BuchBearbeitenResponse> createBuchBearbeitenResponse(BuchBearbeitenResponse value) {
-        return new JAXBElement<BuchBearbeitenResponse>(_BuchBearbeitenResponse_QNAME, BuchBearbeitenResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AnzahlErhoehenResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "anzahlErhoehenResponse")
-    public JAXBElement<AnzahlErhoehenResponse> createAnzahlErhoehenResponse(AnzahlErhoehenResponse value) {
-        return new JAXBElement<AnzahlErhoehenResponse>(_AnzahlErhoehenResponse_QNAME, AnzahlErhoehenResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAllMitarbeiter")
+    public JAXBElement<GetAllMitarbeiter> createGetAllMitarbeiter(GetAllMitarbeiter value) {
+        return new JAXBElement<GetAllMitarbeiter>(_GetAllMitarbeiter_QNAME, GetAllMitarbeiter.class, null, value);
     }
 
     /**
@@ -300,12 +246,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuchBearbeiten }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link MitarbeiterSuchenResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "buchBearbeiten")
-    public JAXBElement<BuchBearbeiten> createBuchBearbeiten(BuchBearbeiten value) {
-        return new JAXBElement<BuchBearbeiten>(_BuchBearbeiten_QNAME, BuchBearbeiten.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "mitarbeiterSuchenResponse")
+    public JAXBElement<MitarbeiterSuchenResponse> createMitarbeiterSuchenResponse(MitarbeiterSuchenResponse value) {
+        return new JAXBElement<MitarbeiterSuchenResponse>(_MitarbeiterSuchenResponse_QNAME, MitarbeiterSuchenResponse.class, null, value);
     }
 
     /**
@@ -318,39 +264,39 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AnzahlVerringern }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllMitarbeiterResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "anzahlVerringern")
-    public JAXBElement<AnzahlVerringern> createAnzahlVerringern(AnzahlVerringern value) {
-        return new JAXBElement<AnzahlVerringern>(_AnzahlVerringern_QNAME, AnzahlVerringern.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAllMitarbeiterResponse")
+    public JAXBElement<GetAllMitarbeiterResponse> createGetAllMitarbeiterResponse(GetAllMitarbeiterResponse value) {
+        return new JAXBElement<GetAllMitarbeiterResponse>(_GetAllMitarbeiterResponse_QNAME, GetAllMitarbeiterResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuchLoeschenResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link MitarbeiterBearbeitenResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "buchLoeschenResponse")
-    public JAXBElement<BuchLoeschenResponse> createBuchLoeschenResponse(BuchLoeschenResponse value) {
-        return new JAXBElement<BuchLoeschenResponse>(_BuchLoeschenResponse_QNAME, BuchLoeschenResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "mitarbeiterBearbeitenResponse")
+    public JAXBElement<MitarbeiterBearbeitenResponse> createMitarbeiterBearbeitenResponse(MitarbeiterBearbeitenResponse value) {
+        return new JAXBElement<MitarbeiterBearbeitenResponse>(_MitarbeiterBearbeitenResponse_QNAME, MitarbeiterBearbeitenResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuchSuchenResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link MitarbeiterBearbeiten }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "buchSuchenResponse")
-    public JAXBElement<BuchSuchenResponse> createBuchSuchenResponse(BuchSuchenResponse value) {
-        return new JAXBElement<BuchSuchenResponse>(_BuchSuchenResponse_QNAME, BuchSuchenResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "mitarbeiterBearbeiten")
+    public JAXBElement<MitarbeiterBearbeiten> createMitarbeiterBearbeiten(MitarbeiterBearbeiten value) {
+        return new JAXBElement<MitarbeiterBearbeiten>(_MitarbeiterBearbeiten_QNAME, MitarbeiterBearbeiten.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NeuesBuchHinzufuegenResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link NeuenMitarbeiterHinzufuegenResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "neuesBuchHinzufuegenResponse")
-    public JAXBElement<NeuesBuchHinzufuegenResponse> createNeuesBuchHinzufuegenResponse(NeuesBuchHinzufuegenResponse value) {
-        return new JAXBElement<NeuesBuchHinzufuegenResponse>(_NeuesBuchHinzufuegenResponse_QNAME, NeuesBuchHinzufuegenResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "neuenMitarbeiterHinzufuegenResponse")
+    public JAXBElement<NeuenMitarbeiterHinzufuegenResponse> createNeuenMitarbeiterHinzufuegenResponse(NeuenMitarbeiterHinzufuegenResponse value) {
+        return new JAXBElement<NeuenMitarbeiterHinzufuegenResponse>(_NeuenMitarbeiterHinzufuegenResponse_QNAME, NeuenMitarbeiterHinzufuegenResponse.class, null, value);
     }
 
     /**
@@ -363,21 +309,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuchSuchen }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link NeuenMitarbeiterHinzufuegen }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "buchSuchen")
-    public JAXBElement<BuchSuchen> createBuchSuchen(BuchSuchen value) {
-        return new JAXBElement<BuchSuchen>(_BuchSuchen_QNAME, BuchSuchen.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "neuenMitarbeiterHinzufuegen")
+    public JAXBElement<NeuenMitarbeiterHinzufuegen> createNeuenMitarbeiterHinzufuegen(NeuenMitarbeiterHinzufuegen value) {
+        return new JAXBElement<NeuenMitarbeiterHinzufuegen>(_NeuenMitarbeiterHinzufuegen_QNAME, NeuenMitarbeiterHinzufuegen.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuchLoeschen }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginMitarbeiterResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "buchLoeschen")
-    public JAXBElement<BuchLoeschen> createBuchLoeschen(BuchLoeschen value) {
-        return new JAXBElement<BuchLoeschen>(_BuchLoeschen_QNAME, BuchLoeschen.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "loginMitarbeiterResponse")
+    public JAXBElement<LoginMitarbeiterResponse> createLoginMitarbeiterResponse(LoginMitarbeiterResponse value) {
+        return new JAXBElement<LoginMitarbeiterResponse>(_LoginMitarbeiterResponse_QNAME, LoginMitarbeiterResponse.class, null, value);
     }
 
     /**
@@ -390,15 +336,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetBuchMitIdEins }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getBuchMitIdEins")
-    public JAXBElement<GetBuchMitIdEins> createGetBuchMitIdEins(GetBuchMitIdEins value) {
-        return new JAXBElement<GetBuchMitIdEins>(_GetBuchMitIdEins_QNAME, GetBuchMitIdEins.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link LogoutResponse }{@code >}}
      * 
      */
@@ -408,30 +345,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NeuesBuchHinzufuegen }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link MitarbeiterLoeschen }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "neuesBuchHinzufuegen")
-    public JAXBElement<NeuesBuchHinzufuegen> createNeuesBuchHinzufuegen(NeuesBuchHinzufuegen value) {
-        return new JAXBElement<NeuesBuchHinzufuegen>(_NeuesBuchHinzufuegen_QNAME, NeuesBuchHinzufuegen.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "mitarbeiterLoeschen")
+    public JAXBElement<MitarbeiterLoeschen> createMitarbeiterLoeschen(MitarbeiterLoeschen value) {
+        return new JAXBElement<MitarbeiterLoeschen>(_MitarbeiterLoeschen_QNAME, MitarbeiterLoeschen.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllBuecherResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginMitarbeiter }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAllBuecherResponse")
-    public JAXBElement<GetAllBuecherResponse> createGetAllBuecherResponse(GetAllBuecherResponse value) {
-        return new JAXBElement<GetAllBuecherResponse>(_GetAllBuecherResponse_QNAME, GetAllBuecherResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetBuchMitIdEinsResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getBuchMitIdEinsResponse")
-    public JAXBElement<GetBuchMitIdEinsResponse> createGetBuchMitIdEinsResponse(GetBuchMitIdEinsResponse value) {
-        return new JAXBElement<GetBuchMitIdEinsResponse>(_GetBuchMitIdEinsResponse_QNAME, GetBuchMitIdEinsResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "loginMitarbeiter")
+    public JAXBElement<LoginMitarbeiter> createLoginMitarbeiter(LoginMitarbeiter value) {
+        return new JAXBElement<LoginMitarbeiter>(_LoginMitarbeiter_QNAME, LoginMitarbeiter.class, null, value);
     }
 
 }

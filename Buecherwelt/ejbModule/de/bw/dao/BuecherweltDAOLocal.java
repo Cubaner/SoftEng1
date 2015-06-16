@@ -1,17 +1,27 @@
 package de.bw.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Local;
 
+import de.bw.entities.Ausleihe;
 import de.bw.entities.Buch;
 import de.bw.entities.BuecherweltSession;
 import de.bw.entities.Kunde;
 import de.bw.entities.Mitarbeiter;
 
 
+/**
+ * @author Jonas Brandhorst/Johann Schäfer
+ *
+ */
 @Local
 public interface BuecherweltDAOLocal {
+
+	public Mitarbeiter mitarbeiterLogin(String benutzername, String passwort);
+	
+	public Kunde kundenLogin(String benutzername, String passwort);
 	
 	public BuecherweltSession findSessionById(int id) ;
 	
@@ -44,4 +54,12 @@ public interface BuecherweltDAOLocal {
 	public void deleteBuch(int id);
 	
 	public List<Buch> alleBuecherAnzeigen();
+	
+	public Ausleihe findAusleiheById(int id);
+	
+	public Ausleihe createAusleihe(int id, Date leihdatum, int kundenId, int buchId);
+	
+	public void deleteAusleihe(int id);
+	
+	public List<Ausleihe> alleAusleihenAnzeigen();
 }

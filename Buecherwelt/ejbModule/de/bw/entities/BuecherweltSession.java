@@ -3,15 +3,19 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author Jonas Brandhorst/Johann Schäfer
+ * Entity BuecherweltSession repräsentiert eine Session eines Kunden bzw. eines Mitarbeiters. Durch die Anbindung an die H2-Datenbank wird hier 
+ * eine entsprechende Tabelle erzeugt, welche alle erzeugten Sessions hält.
+ */
 @Entity
 @Table
 public class BuecherweltSession {
 	
-	@Id @GeneratedValue(strategy=GenerationType.TABLE)
+	@Id @GeneratedValue
 	private int id;
 	
 	private String benutzername;

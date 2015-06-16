@@ -1,0 +1,4 @@
+~/Programme/wildfly-8.2.0.Final/bin/wsconsume.sh -k -n -s\. http://localhost:8080/buecherwelt/Ausleihverwaltung?wsdl
+~/Programme/wildfly-8.2.0.Final/bin/wsconsume.sh -k -n -s\. http://localhost:8080/buecherwelt/Kundenverwaltung?wsdl
+~/Programme/wildfly-8.2.0.Final/bin/wsconsume.sh -k -n -s\. http://localhost:8080/buecherwelt/Buchverwaltung?wsdl
+~/Programme/wildfly-8.2.0.Final/bin/wsconsume.sh -k -n -s\. http://localhost:8080/buecherwelt/Mitarbeiterverwaltung?wsdl

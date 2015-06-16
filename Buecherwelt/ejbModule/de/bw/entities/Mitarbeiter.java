@@ -4,18 +4,21 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+/**
+ * @author Jonas Brandhorst/Johann Schäfer
+ * Entity Mitarbeiter repräsentiert einen Mitarbeiter. Durch die Anbindung an die H2-Datenbank wird hier 
+ * eine entsprechende Tabelle erzeugt, welche alle Mitarbeiter der Bibliothek hält.
+ */
 @Entity
 @Table
 public class Mitarbeiter implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id @GeneratedValue(strategy=GenerationType.TABLE)
+	@Id @GeneratedValue
 	private int id;
 	
 	private String vorname;
@@ -25,7 +28,7 @@ public class Mitarbeiter implements Serializable{
 	private String strasse;
 	private int hausnummer;
 	private String email;
-	@Column(nullable=false)
+	@Column(nullable=false, unique=true)
 	private String benutzername;
 	private String passwort;
 

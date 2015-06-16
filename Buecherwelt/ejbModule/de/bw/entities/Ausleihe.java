@@ -3,35 +3,32 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.Table;
 
 /**
- * @author user
- *
+ * @author Jonas Brandhorst/Johann Schäfer
+ * Entity Ausleihe repräsentiert eine Ausleihe eines Kunden. Durch die Anbindung an die H2-Datenbank wird hier 
+ * eine entsprechende Tabelle erzeugt, welche alle Ausleihen von allen Kunden hält.
  */
-
 @Entity
-@Table
 public class Ausleihe {
 	
-	@Id @GeneratedValue(strategy=GenerationType.TABLE)
+	@Id @GeneratedValue
 	private int id;
 	
 	private Date leihdatum;
-	private Kunde kunde;
-	private Buch buch;
+	private int kundenId;
+	private int buchId;
 	
 	public Ausleihe() {
 		super();
 	}
 	
-	public Ausleihe(Date leihdatum, Kunde kunde, Buch buch) {
+	public Ausleihe(Date leihdatum, int kundenId, int buchId) {
 		this.leihdatum = leihdatum;
-		this.kunde = kunde;
-		this.buch = buch;
+		this.kundenId = kundenId;
+		this.buchId = buchId;
 	}
 	
 	public int getId() {
@@ -46,23 +43,23 @@ public class Ausleihe {
 		return this.leihdatum;
 	}
 
-	public Kunde getKunde() {
-		return this.kunde;
+	public int getKundenId() {
+		return this.kundenId;
 	}
 	
-	public Buch getBuch() {
-		return this.buch;
+	public int getBuchId() {
+		return this.buchId;
 	}
 	
 	public void setLeihdatum(Date leihdatum) {
 		this.leihdatum = leihdatum;
 	}
 	
-	public void setKunde(Kunde kunde) {
-		this.kunde = kunde;
+	public void setKundenId(int kundenId) {
+		this.kundenId = kundenId;
 	}
 	
-	public void setBuch(Buch buch) {
-		this.buch = buch;
+	public void setBuchId(int buchId) {
+		this.buchId = buchId;
 	}
 }

@@ -1,21 +1,23 @@
 package de.bw.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author Jonas Brandhorst/Johann Schäfer
+ * Entity Buch repräsentiert ein Buch. Durch die Anbindung an die H2-Datenbank wird hier 
+ * eine entsprechende Tabelle erzeugt, welche alle angelegten Bücher hält.
+ */
 @Entity
-@Table
 public class Buch implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id @GeneratedValue(strategy=GenerationType.TABLE)
+	@Id @GeneratedValue
 	private int id;
 	
 	private String titel;
