@@ -11,9 +11,11 @@ import org.jboss.logging.Logger;
 import org.jboss.ws.api.annotation.WebContext;
 
 import de.bw.dao.BuecherweltDAOLocal;
+import de.bw.dto.BuchTO;
 import de.bw.dto.ErzeugeDTOs;
 import de.bw.dto.MitarbeiterTO;
 import de.bw.dto.SessionTO;
+import de.bw.entities.Buch;
 import de.bw.entities.BuecherweltSession;
 import de.bw.entities.Mitarbeiter;
 import de.bw.exception.BuecherweltException;
@@ -136,6 +138,28 @@ public class Mitarbeiterverwaltung {
 		Mitarbeiter mitarbeiter = dao.findMitarbeiterById(id);
 		MitarbeiterTO mitarbeiterTO = dtoErzeuger.createMitarbeiterDTO(mitarbeiter);
 		return mitarbeiterTO;
+	}
+	
+	/**
+	 * @param benutzername
+	 * @return MitarbeiterTO
+	 * sucht einen einzelnen Mitarbeiter nach dem Benutzernamen
+	 */
+	public MitarbeiterTO mitarbeiterSuchenByBenutzername(String benutzername) {
+		List<Mitarbeiter> alleMitarbeiter = new ArrayList<Mitarbeiter>();
+		for(Mitarbeiter mitarbeiter : dao.alleMitarbeiterAnzeigen()) {
+			if(mitarbeiter.getBenutzername().equals(benutzername)) {
+				alleMitarbeiter.add(mitarbeiter);
+			}
+		}
+		if(alleMitarbeiter.size() > 0) {
+			Mitarbeiter newMitarbeiter = alleMitarbeiter.get(0);
+			MitarbeiterTO newMitarbeiterTO = dtoErzeuger.createMitarbeiterDTO(newMitarbeiter);
+			return newMitarbeiterTO;
+		}
+		else {
+			return null;
+		}
 	}
 	
 	/**

@@ -3,6 +3,10 @@ package de.bw.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author Jonas Brandhorst/Johann Schäfer
+ * Die Data-Transfer-Object-Klasse BuchtTO ist eine Schicht zwischen Webservice und Client und spiegelt Buch-Objekte wider.
+ */
 public class BuchTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;

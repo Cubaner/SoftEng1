@@ -16,6 +16,7 @@ import de.bw.dto.KundeTO;
 import de.bw.dto.MitarbeiterTO;
 import de.bw.dto.SessionTO;
 import de.bw.entities.Kunde;
+import de.bw.entities.Mitarbeiter;
 import de.bw.exception.BuecherweltException;
 import de.bw.exception.InvalidLoginException;
 
@@ -73,9 +74,12 @@ public class Kundenverwaltung {
 	 * @param sessionId
 	 * Logout-Methode für Kunden und Mitarbeiter
 	 */
-	public void logout(int sessionId) {
+	public SessionTO logout(int sessionId) {
 		dao.closeSession(sessionId);
 		logger.info("Logout erfolgreich. Session=" + sessionId);
+		SessionTO sessionTO = new SessionTO();
+		return sessionTO;
+		
 	}
 
 	/**
@@ -134,6 +138,28 @@ public class Kundenverwaltung {
 		Kunde kunde = dao.findKundeById(id);
 		KundeTO kundeTO = dtoErzeuger.createKundenDTO(kunde);
 		return kundeTO;
+	}
+	
+	/**
+	 * @param benutzername
+	 * @return KundeTO
+	 * sucht einen einzelnen Kunden nach dem Benutzernamen
+	 */
+	public KundeTO kundenSuchenByBenutzername(String benutzername) {
+		List<Kunde> alleKunden = new ArrayList<Kunde>();
+		for(Kunde kunde : dao.alleKundenAnzeigen()) {
+			if(kunde.getBenutzername().equals(benutzername)) {
+				alleKunden.add(kunde);
+			}
+		}
+		if(alleKunden.size() > 0) {
+			Kunde newKunde = alleKunden.get(0);
+			KundeTO newKundeTO = dtoErzeuger.createKundenDTO(newKunde);
+			return newKundeTO;
+		}
+		else {
+			return null;
+		}
 	}
 	
 	/**

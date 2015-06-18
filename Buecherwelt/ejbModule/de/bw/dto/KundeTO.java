@@ -2,6 +2,10 @@ package de.bw.dto;
 
 import java.io.Serializable;
 
+/**
+ * @author Jonas Brandhorst/Johann Schäfer
+ * Die Data-Transfer-Object-Klasse KundeTO ist eine Schicht zwischen Webservice und Client und spiegelt Kunden-Objekte wider.
+ */
 public class KundeTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;

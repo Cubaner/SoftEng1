@@ -2,6 +2,10 @@ package de.bw.dto;
 
 import java.io.Serializable;
 
+/**
+ * @author Jonas Brandhorst/Johann Schäfer
+ * Die Data-Transfer-Object-Klasse MitarbeiterTO ist eine Schicht zwischen Webservice und Client und spiegelt Mitarbeiter-Objekte wider.
+ */
 public class MitarbeiterTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;

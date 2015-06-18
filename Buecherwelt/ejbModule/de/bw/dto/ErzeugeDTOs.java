@@ -10,10 +10,20 @@ import de.bw.entities.Buch;
 import de.bw.entities.Kunde;
 import de.bw.entities.Mitarbeiter;
 
+/**
+ * @author Jonas Brandhorst/Johann Schäfer
+ * Die Klasse ErzeugeDTOs dient der Erzeugung von Data-Transfer-Objects. Hier werden unter anderem MitarbeiterTOs und BuchTOs
+ * erzeugt. Der Aufruf erfolgt von dem Webservice.
+ */
 @Stateless
 public class ErzeugeDTOs {
 
-  public MitarbeiterTO createMitarbeiterDTO(Mitarbeiter mitarbeiter) {
+  /**
+ * @param mitarbeiter
+ * @return MitarbeiterTO
+ * Erzeugung einer einzelnen Mitarbeiter-Kopie.
+ */
+public MitarbeiterTO createMitarbeiterDTO(Mitarbeiter mitarbeiter) {
 	  MitarbeiterTO mitarbeiterTO = new MitarbeiterTO();
 	  mitarbeiterTO.setId(mitarbeiter.getId());
 	  mitarbeiterTO.setVorname(mitarbeiter.getVorname());
@@ -28,7 +38,12 @@ public class ErzeugeDTOs {
 	  return mitarbeiterTO;
   }
 	
-  public List<MitarbeiterTO> createMitarbeiterDTO(List<Mitarbeiter> mitarbeiter) {
+  /**
+ * @param mitarbeiter
+ * @return List<MitarbeiterTO>
+ * Erzeugung einer Liste von Mitarbeiter-Kopien.
+ */
+public List<MitarbeiterTO> createMitarbeiterDTO(List<Mitarbeiter> mitarbeiter) {
 	  List<MitarbeiterTO> mitarbeiterTOListe = new ArrayList<>();
 	  for (Mitarbeiter newMitarbeiter : mitarbeiter) {
 		  mitarbeiterTOListe.add(this.createMitarbeiterDTO(newMitarbeiter));
@@ -36,6 +51,11 @@ public class ErzeugeDTOs {
 	  return mitarbeiterTOListe;
   }
 
+  /**
+   * @param kunde
+   * @return KundeTO
+   * Erzeugung einer einzelnen Kunden-Kopie.
+   */
   public KundeTO createKundenDTO(Kunde kunde) {
 	  KundeTO kundeTO = new KundeTO();
 	  kundeTO.setId(kunde.getId());
@@ -51,6 +71,11 @@ public class ErzeugeDTOs {
 	  return kundeTO;
   }
   
+  /**
+ * @param kunden
+ * @return List<KundeTO>
+ * Erzeugung einer Liste von Kunden-Kopien.
+ */
   public List<KundeTO> createKundenDTO(List<Kunde> kunden) {
 	  List<KundeTO> kundenTOListe = new ArrayList<>();
 	  for (Kunde newKunde : kunden) {
@@ -59,6 +84,11 @@ public class ErzeugeDTOs {
 	  return kundenTOListe;
   }
   
+  /**
+   * @param buch
+   * @return BuchTO
+   * Erzeugung einer einzelnen Buch-Kopie.
+   */
   public BuchTO createBuchDTO(Buch buch) {
 	  BuchTO buchTO = new BuchTO();
 	  buchTO.setId(buch.getId());
@@ -69,6 +99,11 @@ public class ErzeugeDTOs {
 	  return buchTO;
   }
   
+  /**
+ * @param buecher
+ * @return List<BuchTO>
+ * Erzeugung einer Liste von Buecher-Kopien.
+ */
   public List<BuchTO> createBuchDTO(List<Buch> buecher) {
 	  List<BuchTO> buchTOListe = new ArrayList<>();
 	  for (Buch newBuch : buecher) {
@@ -77,6 +112,11 @@ public class ErzeugeDTOs {
 	  return buchTOListe;
   }
   
+  /**
+   * @param ausleihe
+   * @return AusleiheTO
+   * Erzeugung einer einzelnen Ausleih-Kopie.
+   */
   public AusleiheTO createAusleiheDTO(Ausleihe ausleihe) {
 	  AusleiheTO ausleiheTO = new AusleiheTO();
 	  ausleiheTO.setId(ausleihe.getId());
@@ -86,6 +126,11 @@ public class ErzeugeDTOs {
 	  return ausleiheTO;
   }
   
+  /**
+ * @param ausleihen
+ * @return List<AusleiheTO>
+ * Erzeugung einer Liste von Ausleih-Kopien.
+ */
   public List<AusleiheTO> createAusleiheDTO(List<Ausleihe> ausleihen) {
 	  List<AusleiheTO> ausleiheTOListe = new ArrayList<>();
 	  for (Ausleihe newAusleihe : ausleihen) {
