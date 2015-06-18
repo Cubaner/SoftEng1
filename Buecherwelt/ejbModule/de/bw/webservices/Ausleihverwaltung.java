@@ -15,6 +15,8 @@ import org.jboss.logging.Logger;
 import org.jboss.ws.api.annotation.WebContext;
 
 import de.bw.dao.BuecherweltDAOLocal;
+import de.bw.dto.AusleiheTO;
+import de.bw.dto.ErzeugeDTOs;
 import de.bw.entities.Ausleihe;
 import de.bw.entities.Buch;
 import de.bw.entities.BuecherweltSession;
@@ -45,6 +47,12 @@ public class Ausleihverwaltung {
 	private BuecherweltDAOLocal dao;
 	
 	/**
+	 * Zur Erzeugung von DataTransferObjects
+	 */
+	@EJB
+	private ErzeugeDTOs dtoErzeuger;
+	
+	/**
 	 * @param sessionId
 	 * @throws NoSessionException
 	 * 
@@ -65,7 +73,7 @@ public class Ausleihverwaltung {
 	 * @throws BuecherweltException
 	 * Erstellt eine neue Ausleihe über die DAO-Klasse mit der aktuellen Systemzeit
 	 */
-	public Ausleihe neueAusleiheHinzufuegen(int id, Kunde kunde, Buch buch) throws BuecherweltException {
+	public AusleiheTO neueAusleiheHinzufuegen(int id, Kunde kunde, Buch buch) throws BuecherweltException {
 		Date date = new Date();
 		Timestamp leihdatum = new Timestamp(date.getTime());
 		Ausleihe ausleihe = dao.createAusleihe(id, leihdatum, kunde.getId(), buch.getId());
@@ -75,8 +83,9 @@ public class Ausleihverwaltung {
 		}
 		else {
 			anzahlVerringern(buch.getId());
+			AusleiheTO ausleiheTO = dtoErzeuger.createAusleiheDTO(ausleihe);
 			logger.info("Ausleihe hinzugefügt und Anzahl um 1 verringert");
-			return ausleihe;
+			return ausleiheTO;
 		}
 	}
 
@@ -89,7 +98,7 @@ public class Ausleihverwaltung {
 		if(ausleiheSuchen(id) != null) {
 			Ausleihe ausleihe = new Ausleihe();
 			Buch buch = new Buch();
-			ausleihe = ausleiheSuchen(id);
+			ausleihe = dao.findAusleiheById(id);
 			buch = dao.findBuchById(ausleihe.getBuchId());
 			if(buch != null) {
 				dao.deleteAusleihe(id);
@@ -111,10 +120,11 @@ public class Ausleihverwaltung {
 	 * @return List<Ausleihe>
 	 * gibt alle Ausleihen aus
 	 */
-	public List<Ausleihe> getAllAusleihen() {
+	public List<AusleiheTO> getAllAusleihen() {
 		List<Ausleihe> alleAusleihen = new ArrayList<Ausleihe>();
 		alleAusleihen = dao.alleAusleihenAnzeigen();
-		return alleAusleihen;
+		List<AusleiheTO> alleAusleihenTO = dtoErzeuger.createAusleiheDTO(alleAusleihen);
+		return alleAusleihenTO;
 	}
 	
 	/**
@@ -122,9 +132,10 @@ public class Ausleihverwaltung {
 	 * @return Ausleihe
 	 * gibt eine bestimmte Ausleihe aus
 	 */
-	public Ausleihe ausleiheSuchen(int id) {
+	public AusleiheTO ausleiheSuchen(int id) {
 		Ausleihe ausleihe = dao.findAusleiheById(id);
-		return ausleihe;
+		AusleiheTO ausleiheTO = dtoErzeuger.createAusleiheDTO(ausleihe);
+		return ausleiheTO;
 	}
 	
 	/**
@@ -134,7 +145,7 @@ public class Ausleihverwaltung {
 	 */
 	public void leihfristVerlaengern(int id) throws BuecherweltException {
 		Date leihdatum = new Date();
-		Ausleihe ausleihe = ausleiheSuchen(id);
+		Ausleihe ausleihe = dao.findAusleiheById(id);
 		if(ausleihe != null) {
 			GregorianCalendar altCal = new GregorianCalendar();
 			altCal.setTime(ausleihe.getLeihdatum());
@@ -183,15 +194,16 @@ public class Ausleihverwaltung {
 	 * @return List<Ausleihe>
 	 * Gibt alles Ausleihen eines bestimmten Kunden aus
 	 */
-	public List<Ausleihe> getAusleihenByKundenId(int id) {
+	public List<AusleiheTO> getAusleihenByKundenId(int id) {
 		List<Ausleihe> alleAusleihen = new ArrayList<Ausleihe>();
 		List<Ausleihe> ausleihenByKundenId = new ArrayList<Ausleihe>();
-		alleAusleihen = getAllAusleihen();
+		alleAusleihen = dao.alleAusleihenAnzeigen();
 		for(Ausleihe ausleihe : alleAusleihen) {
 			if(ausleihe.getKundenId() == id) {
 				ausleihenByKundenId.add(ausleihe);
 			}
 		}
-		return ausleihenByKundenId;
+		List<AusleiheTO> ausleihenByKundenIdTO = dtoErzeuger.createAusleiheDTO(ausleihenByKundenId);
+		return ausleihenByKundenIdTO;
 	}
 }

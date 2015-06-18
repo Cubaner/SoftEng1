@@ -20,8 +20,9 @@ public class KundeTO implements Serializable{
 	
 	public KundeTO(){}
 	
-	public KundeTO(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort){
+	public KundeTO(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort){
 		super();
+		this.id = id;
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.plz = plz;

@@ -11,6 +11,8 @@ import org.jboss.logging.Logger;
 import org.jboss.ws.api.annotation.WebContext;
 
 import de.bw.dao.BuecherweltDAOLocal;
+import de.bw.dto.BuchTO;
+import de.bw.dto.ErzeugeDTOs;
 import de.bw.entities.Buch;
 import de.bw.entities.BuecherweltSession;
 import de.bw.exception.BuecherweltException;
@@ -38,6 +40,12 @@ public class Buchverwaltung {
 	private BuecherweltDAOLocal dao;
 	
 	/**
+	 * Zur Erzeugung von DataTransferObjects
+	 */
+	@EJB
+	private ErzeugeDTOs dtoErzeuger;
+	
+	/**
 	 * @param sessionId
 	 * @return BuecherweltSession
 	 * @throws NoSessionException
@@ -60,14 +68,15 @@ public class Buchverwaltung {
 	 * @throws BuecherweltException
 	 * Erstellt ein neues Buch über die DAO-Klasse
 	 */
-	public Buch neuesBuchHinzufuegen(int id, String titel, String autor, int erscheinungsjahr, int anzahl) throws BuecherweltException {
+	public BuchTO neuesBuchHinzufuegen(int id, String titel, String autor, int erscheinungsjahr, int anzahl) throws BuecherweltException {
 			Buch buch = dao.createBuch(id, titel, autor, erscheinungsjahr, anzahl);
 			if (buch == null) {
 				logger.info("Hinzufuegen fehlgeschlagen, da das Buch " + id + " bereits existiert");
 				throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da das Buch bereits existiert");
 			}
+			BuchTO buchTO = dtoErzeuger.createBuchDTO(buch);
 			logger.info("Buch mit Id: " + id + " wurde hinzugefuegt.");
-			return buch;
+			return buchTO;
 	}
 	
 	/**
@@ -82,10 +91,11 @@ public class Buchverwaltung {
 	 * @return List<Buch>
 	 * gibt alle Bücher aus
 	 */
-	public List<Buch> getAllBuecher() {
+	public List<BuchTO> getAllBuecher() {
 		List<Buch> alleBuecher = new ArrayList<Buch>();
 		alleBuecher = dao.alleBuecherAnzeigen();
-		return alleBuecher;
+		List<BuchTO> alleBuecherTO = dtoErzeuger.createBuchDTO(alleBuecher);
+		return alleBuecherTO;
 	}
 	
 	/**
@@ -93,21 +103,28 @@ public class Buchverwaltung {
 	 * @return Buch
 	 * gibt ein bestimmtes Buch aus
 	 */
-	public Buch buchSuchen(int id) {
+	public BuchTO buchSuchen(int id) {
 		Buch buch = dao.findBuchById(id);
-		return buch;
+		BuchTO buchTO = dtoErzeuger.createBuchDTO(buch);
+		return buchTO;
 	}
 	
-	public Buch buchSuchenByName(String titel) {
+	/**
+	 * @param titel
+	 * @return Buch
+	 * sucht ein einzelnes Buch nach dem Titel
+	 */
+	public BuchTO buchSuchenByName(String titel) {
 		List<Buch> alleBuecher = new ArrayList<Buch>();
-		for(Buch buch : getAllBuecher()) {
+		for(Buch buch : dao.alleBuecherAnzeigen()) {
 			if(buch.getTitel().equals(titel)) {
 				alleBuecher.add(buch);
 			}
 		}
 		if(alleBuecher.size() > 0) {
 			Buch newBuch = alleBuecher.get(0);
-			return newBuch;
+			BuchTO newBuchTO = dtoErzeuger.createBuchDTO(newBuch);
+			return newBuchTO;
 		}
 		else {
 			return null;
@@ -136,15 +153,5 @@ public class Buchverwaltung {
 			logger.info("Buch nicht gefunden!");
 			throw new BuecherweltException("Buch nicht gefunden!");
 		}
-	}
-	
-	/**
-	 * @return Buch
-	 * Test-Methode zur Anzeige eines Test-Buches aus der ejb-jar
-	 */
-	public Buch getBuchMitIdEins() {
-		int id = 3;
-		Buch buch = dao.findBuchById(id);
-		return buch;
 	}
 }

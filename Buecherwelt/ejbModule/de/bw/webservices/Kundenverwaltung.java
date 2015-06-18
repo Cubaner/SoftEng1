@@ -11,8 +11,13 @@ import org.jboss.logging.Logger;
 import org.jboss.ws.api.annotation.WebContext;
 
 import de.bw.dao.BuecherweltDAOLocal;
+import de.bw.dto.ErzeugeDTOs;
+import de.bw.dto.KundeTO;
+import de.bw.dto.MitarbeiterTO;
+import de.bw.dto.SessionTO;
 import de.bw.entities.Kunde;
 import de.bw.exception.BuecherweltException;
+import de.bw.exception.InvalidLoginException;
 
 
 /**
@@ -38,22 +43,29 @@ public class Kundenverwaltung {
 	private BuecherweltDAOLocal dao;
 	
 	/**
+	 * Zur Erzeugung von DataTransferObjects
+	 */
+	@EJB
+	private ErzeugeDTOs dtoErzeuger;
+	
+	/**
 	 * @param benutzername
 	 * @param passwort
 	 * @return boolean
 	 * Login-Methode für Kunden, bei der auch eine neue Session erzeugt wird
+	 * @throws InvalidLoginException 
 	 */
-	public boolean loginKunde(String benutzername, String passwort) {
+	public SessionTO loginKunde(String benutzername, String passwort) throws InvalidLoginException {
 		Kunde kunde = dao.kundenLogin(benutzername, passwort);
 		if(kunde != null) {			
 			int sessionId = dao.createSession(kunde);
-			
+			SessionTO sessionTO = dtoErzeuger.createSessionDTO(sessionId);
 			logger.info("Session für den Kunden mit Id: " + sessionId + " wurde erzeugt.");
-			return true;
+			return sessionTO;
 		}
 		else {
 			logger.info("Kundenlogin fehlgeschlagen!");
-			return false;
+			throw new InvalidLoginException("Login fehlgeschlagen, da der Benutzername unbekannt oder das Passwort falsch.");
 		}
 	}
 	
@@ -81,15 +93,16 @@ public class Kundenverwaltung {
 	 * @throws BuecherweltException
 	 * Erzeugung eines neuen Kunden
 	 */
-	public Kunde kundeHinzufuegen(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) throws BuecherweltException {
+	public KundeTO kundeHinzufuegen(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) throws BuecherweltException {
 		Kunde kunde = dao.createKunde(id, vorname, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
 		if (kunde == null) {
 			logger.info("Hinzufuegen fehlgeschlagen, da der Kunde bereits existiert");
 			throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da der Kunde bereits existiert");
 		}
 		else {
+			KundeTO kundeTO = dtoErzeuger.createKundenDTO(kunde);
 			logger.info("Kunde mit der Id: " + id + " wurde hinzugefuegt.");
-			return kunde;
+			return kundeTO;
 		}
 	}
 	
@@ -105,10 +118,11 @@ public class Kundenverwaltung {
 	 * @return List<Kunde>
 	 * Ausgabe aller Kunden
 	 */
-	public List<Kunde> getAllKunden() {
+	public List<KundeTO> getAllKunden() {
 		List<Kunde> alleKunden = new ArrayList<Kunde>();
 		alleKunden = dao.alleKundenAnzeigen();
-		return alleKunden;
+		List<KundeTO> alleKundenTO = dtoErzeuger.createKundenDTO(alleKunden);
+		return alleKundenTO;
 	}
 	
 	/**
@@ -116,9 +130,10 @@ public class Kundenverwaltung {
 	 * @return Kunde
 	 * gibt einen bestimmten Kunden aus
 	 */
-	public Kunde kundeSuchen(int id) {
+	public KundeTO kundeSuchen(int id) {
 		Kunde kunde = dao.findKundeById(id);
-		return kunde;
+		KundeTO kundeTO = dtoErzeuger.createKundenDTO(kunde);
+		return kundeTO;
 	}
 	
 	/**
@@ -136,7 +151,7 @@ public class Kundenverwaltung {
 	 * @throws BuecherweltException 
 	 */
 	public void kundeBearbeiten(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) throws BuecherweltException { 
-	Kunde kunde = kundeSuchen(id);
+	Kunde kunde = dao.findKundeById(id);
 	if(kunde != null) {
 		kunde.setVorname(vorname);
 		kunde.setNachname(nachname);

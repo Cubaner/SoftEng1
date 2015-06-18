@@ -19,7 +19,8 @@ public class MitarbeiterTO implements Serializable{
 
 	public MitarbeiterTO(){}
 	
-	public MitarbeiterTO(String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort){
+	public MitarbeiterTO(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort){
+		this.id = id;
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.plz = plz;

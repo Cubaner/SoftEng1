@@ -11,9 +11,13 @@ import org.jboss.logging.Logger;
 import org.jboss.ws.api.annotation.WebContext;
 
 import de.bw.dao.BuecherweltDAOLocal;
+import de.bw.dto.ErzeugeDTOs;
+import de.bw.dto.MitarbeiterTO;
+import de.bw.dto.SessionTO;
 import de.bw.entities.BuecherweltSession;
 import de.bw.entities.Mitarbeiter;
 import de.bw.exception.BuecherweltException;
+import de.bw.exception.InvalidLoginException;
 import de.bw.exception.NoSessionException;
 
 /**
@@ -38,21 +42,28 @@ public class Mitarbeiterverwaltung {
 	private BuecherweltDAOLocal dao;
 	
 	/**
+	 * Zur Erzeugung von DataTransferObjects
+	 */
+	@EJB
+	private ErzeugeDTOs dtoErzeuger;
+	
+	/**
 	 * @param benutzername
 	 * @param passwort
 	 * @return boolean
 	 * Login-Methode für die Mitarbeiter
 	 */
-	public boolean loginMitarbeiter(String benutzername, String passwort) {
+	public SessionTO loginMitarbeiter(String benutzername, String passwort) throws InvalidLoginException {
 		Mitarbeiter mitarbeiter = dao.mitarbeiterLogin(benutzername, passwort);
 		if(mitarbeiter != null) {			
 			int sessionId = dao.createSession(mitarbeiter);
+			SessionTO sessionTO = dtoErzeuger.createSessionDTO(sessionId);
 			logger.info("Session für den Mitarbeiter mit Id: " + sessionId + " wurde erzeugt.");
-			return true;
+			return sessionTO;
 		}
 		else {
 			logger.info("Mitarbeiterlogin fehlgeschlagen!");
-			return false;
+			throw new InvalidLoginException("Login fehlgeschlagen, da der Benutzername unbekannt oder das Passwort falsch.");
 		}
 	}
 	
@@ -84,15 +95,16 @@ public class Mitarbeiterverwaltung {
 	 * @throws BuecherweltException
 	 * Fügt einen neuen Mitarbeiter hinzu
 	 */
-	public Mitarbeiter neuenMitarbeiterHinzufuegen(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) throws BuecherweltException {
+	public MitarbeiterTO neuenMitarbeiterHinzufuegen(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) throws BuecherweltException {
 		Mitarbeiter mitarbeiter = dao.createMitarbeiter(id, vorname, nachname, plz, ort, strasse, hausnummer, email, benutzername, passwort);
 			if (mitarbeiter == null) {
 				logger.info("Hinzufuegen fehlgeschlagen, da der Mitarbeiter bereits existiert");
 				throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da der Mitarbeiter bereits existiert");
 			}
 			else {
+				MitarbeiterTO mitarbeiterTO = dtoErzeuger.createMitarbeiterDTO(mitarbeiter);
 				logger.info("Mitarbeiter mit der Id: " + id + " wurde hinzugefuegt.");
-				return mitarbeiter;
+				return mitarbeiterTO;
 			}
 	}
 	
@@ -108,10 +120,11 @@ public class Mitarbeiterverwaltung {
 	 * @return List<Mitarbeiter>
 	 * Gibt alle Mitarbeiter aus
 	 */
-	public List<Mitarbeiter> getAllMitarbeiter(){
+	public List<MitarbeiterTO> getAllMitarbeiter(){
 		List<Mitarbeiter> alleMitarbeiter = new ArrayList<Mitarbeiter>();
 		alleMitarbeiter = dao.alleMitarbeiterAnzeigen();
-		return alleMitarbeiter;	
+		List<MitarbeiterTO> alleMitarbeiterTO = dtoErzeuger.createMitarbeiterDTO(alleMitarbeiter);
+		return alleMitarbeiterTO;	
 	}
 	
 	/**
@@ -119,9 +132,10 @@ public class Mitarbeiterverwaltung {
 	 * @return Mitarbeiter
 	 * Gibt einen bestimmten Mitarbeiter aus
 	 */
-	public Mitarbeiter mitarbeiterSuchen(int id){
+	public MitarbeiterTO mitarbeiterSuchen(int id){
 		Mitarbeiter mitarbeiter = dao.findMitarbeiterById(id);
-		return mitarbeiter;
+		MitarbeiterTO mitarbeiterTO = dtoErzeuger.createMitarbeiterDTO(mitarbeiter);
+		return mitarbeiterTO;
 	}
 	
 	/**
@@ -139,7 +153,7 @@ public class Mitarbeiterverwaltung {
 	 * @throws BuecherweltException 
 	 */
 	public void mitarbeiterBearbeiten(int id, String vorname, String nachname, String plz, String ort, String strasse, int hausnummer, String email, String benutzername, String passwort) throws BuecherweltException {
-		Mitarbeiter mitarbeiter = mitarbeiterSuchen(id);
+		Mitarbeiter mitarbeiter = dao.findMitarbeiterById(id);
 		if(mitarbeiter != null) {
 		mitarbeiter.setVorname(vorname);
 		mitarbeiter.setNachname(nachname);
@@ -153,7 +167,7 @@ public class Mitarbeiterverwaltung {
 		logger.info("Mitarbeiter mit Id: " + id + " wurde bearbeitet.");
 		}
 		else {
-			logger.info("Kunde nicht gefunden!");
+			logger.info("Mitarbeiter nicht gefunden!");
 			throw new BuecherweltException("Mitarbeiter nicht gefunden!");
 		}
 	}
