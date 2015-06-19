@@ -1,6 +1,5 @@
 package de.bw.dao;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
@@ -8,10 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.jboss.logging.Logger;
-
-import de.bw.entities.Buch;
-import de.bw.entities.Kunde;
-import de.bw.entities.Mitarbeiter;
 
 /**
  * @author Jonas Brandhorst/Johann Schäfer
@@ -48,7 +43,7 @@ public class DataBuilder {
 	/**
 	 * erzeugt Beispiel-Daten anhand von der ejb-jar-Datei
 	 */
-	@PostConstruct
+	/**@PostConstruct
 	private void init() {
 		
 		Mitarbeiter administrator = em.find(Mitarbeiter.class, id);
@@ -71,5 +66,5 @@ public class DataBuilder {
 				em.persist(buch);
 				logger.info("Initial Test-Buch wurde erzeugt.");
 		}
-	}
+	}*/
 }
