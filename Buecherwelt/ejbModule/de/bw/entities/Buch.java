@@ -29,7 +29,7 @@ public class Buch implements Serializable{
 		super();
 	}
 	
-	public Buch(String titel, String autor, int erscheinungsjahr, int anzahl) {
+	public Buch(int id, String titel, String autor, int erscheinungsjahr, int anzahl) {
 		this.titel = titel;
 		this.autor = autor;
 		this.erscheinungsjahr = erscheinungsjahr;

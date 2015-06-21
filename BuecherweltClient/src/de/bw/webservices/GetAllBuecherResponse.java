@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://webservices.bw.de/}buch" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://webservices.bw.de/}buchTO" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
 public class GetAllBuecherResponse {
 
     @XmlElement(name = "return")
-    protected List<Buch> _return;
+    protected List<BuchTO> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class GetAllBuecherResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Buch }
+     * {@link BuchTO }
      * 
      * 
      */
-    public List<Buch> getReturn() {
+    public List<BuchTO> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<Buch>();
+            _return = new ArrayList<BuchTO>();
         }
         return this._return;
     }

@@ -16,11 +16,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -34,30 +33,36 @@ import javax.xml.bind.annotation.XmlType;
     "arg0",
     "arg1",
     "arg2",
-    "arg3",
-    "arg4"
+    "arg3"
 })
 public class NeuesBuchHinzufuegen {
 
-    protected int arg0;
+    protected String arg0;
     protected String arg1;
-    protected String arg2;
+    protected int arg2;
     protected int arg3;
-    protected int arg4;
 
     /**
      * Ruft den Wert der arg0-Eigenschaft ab.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getArg0() {
+    public String getArg0() {
         return arg0;
     }
 
     /**
      * Legt den Wert der arg0-Eigenschaft fest.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setArg0(int value) {
+    public void setArg0(String value) {
         this.arg0 = value;
     }
 
@@ -88,24 +93,16 @@ public class NeuesBuchHinzufuegen {
     /**
      * Ruft den Wert der arg2-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getArg2() {
+    public int getArg2() {
         return arg2;
     }
 
     /**
      * Legt den Wert der arg2-Eigenschaft fest.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setArg2(String value) {
+    public void setArg2(int value) {
         this.arg2 = value;
     }
 
@@ -123,22 +120,6 @@ public class NeuesBuchHinzufuegen {
      */
     public void setArg3(int value) {
         this.arg3 = value;
-    }
-
-    /**
-     * Ruft den Wert der arg4-Eigenschaft ab.
-     * 
-     */
-    public int getArg4() {
-        return arg4;
-    }
-
-    /**
-     * Legt den Wert der arg4-Eigenschaft fest.
-     * 
-     */
-    public void setArg4(int value) {
-        this.arg4 = value;
     }
 
 }

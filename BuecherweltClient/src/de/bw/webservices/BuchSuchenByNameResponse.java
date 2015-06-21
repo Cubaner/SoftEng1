@@ -8,16 +8,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für neueAusleiheHinzufuegenResponse complex type.
+ * <p>Java-Klasse für buchSuchenByNameResponse complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="neueAusleiheHinzufuegenResponse">
+ * &lt;complexType name="buchSuchenByNameResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://webservices.bw.de/}ausleihe" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://webservices.bw.de/}buchTO" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,23 +27,23 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "neueAusleiheHinzufuegenResponse", propOrder = {
+@XmlType(name = "buchSuchenByNameResponse", propOrder = {
     "_return"
 })
-public class NeueAusleiheHinzufuegenResponse {
+public class BuchSuchenByNameResponse {
 
     @XmlElement(name = "return")
-    protected Ausleihe _return;
+    protected BuchTO _return;
 
     /**
      * Ruft den Wert der return-Eigenschaft ab.
      * 
      * @return
      *     possible object is
-     *     {@link Ausleihe }
+     *     {@link BuchTO }
      *     
      */
-    public Ausleihe getReturn() {
+    public BuchTO getReturn() {
         return _return;
     }
 
@@ -52,10 +52,10 @@ public class NeueAusleiheHinzufuegenResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Ausleihe }
+     *     {@link BuchTO }
      *     
      */
-    public void setReturn(Ausleihe value) {
+    public void setReturn(BuchTO value) {
         this._return = value;
     }
 

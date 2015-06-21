@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://webservices.bw.de/}buch" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://webservices.bw.de/}buchTO" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,17 +33,17 @@ import javax.xml.bind.annotation.XmlType;
 public class NeuesBuchHinzufuegenResponse {
 
     @XmlElement(name = "return")
-    protected Buch _return;
+    protected BuchTO _return;
 
     /**
      * Ruft den Wert der return-Eigenschaft ab.
      * 
      * @return
      *     possible object is
-     *     {@link Buch }
+     *     {@link BuchTO }
      *     
      */
-    public Buch getReturn() {
+    public BuchTO getReturn() {
         return _return;
     }
 
@@ -52,10 +52,10 @@ public class NeuesBuchHinzufuegenResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Buch }
+     *     {@link BuchTO }
      *     
      */
-    public void setReturn(Buch value) {
+    public void setReturn(BuchTO value) {
         this._return = value;
     }
 

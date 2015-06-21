@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für buch complex type.
+ * <p>Java-Klasse für buchTO complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="buch">
+ * &lt;complexType name="buchTO">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -30,14 +30,14 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "buch", propOrder = {
+@XmlType(name = "buchTO", propOrder = {
     "anzahl",
     "autor",
     "erscheinungsjahr",
     "id",
     "titel"
 })
-public class Buch {
+public class BuchTO {
 
     protected int anzahl;
     protected String autor;

@@ -192,13 +192,18 @@ public class BuecherweltDAO implements BuecherweltDAOLocal{
 		return em.find(Buch.class, id);
 	}
 	
+	public Buch findBuchByTitel(String titel){
+		return em.find(Buch.class, titel);
+	}
+	
 	/** 
 	 * @return Buch
 	 * Erzeugung eines neuen Buches mit allen Parametern
 	 */
 	public Buch createBuch(int id, String titel, String autor, int erscheinungsjahr, int anzahl) {
 		if(findBuchById(id) == null) {
-			Buch buch = new Buch(titel, autor, erscheinungsjahr, anzahl);
+			
+			Buch buch = new Buch(id, titel, autor, erscheinungsjahr, anzahl);
 			em.persist(buch);
 			return buch;
 		}

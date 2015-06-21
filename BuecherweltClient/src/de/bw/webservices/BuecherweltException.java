@@ -16,7 +16,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="errorCode" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="message" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -28,37 +27,11 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BuecherweltException", propOrder = {
-    "errorCode",
     "message"
 })
 public class BuecherweltException {
 
-    protected Integer errorCode;
     protected String message;
-
-    /**
-     * Ruft den Wert der errorCode-Eigenschaft ab.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getErrorCode() {
-        return errorCode;
-    }
-
-    /**
-     * Legt den Wert der errorCode-Eigenschaft fest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setErrorCode(Integer value) {
-        this.errorCode = value;
-    }
 
     /**
      * Ruft den Wert der message-Eigenschaft ab.

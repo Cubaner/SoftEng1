@@ -1,18 +1,18 @@
 package de.bw.client;
 
 import de.bw.exception.BuecherweltException;
-import de.bw.webservices.Ausleihe;
+//import de.bw.webservices.Ausleihe;
 import de.bw.webservices.Ausleihverwaltung;
-import de.bw.webservices.AusleihverwaltungService;
-import de.bw.webservices.Buch;
+//import de.bw.webservices.AusleihverwaltungService;
+//import de.bw.webservices.Buch;
 import de.bw.webservices.Buchverwaltung;
 import de.bw.webservices.BuchverwaltungService;
 import de.bw.webservices.BuecherweltException_Exception;
-import de.bw.webservices.Kunde;
+//import de.bw.webservices.Kunde;
 import de.bw.webservices.Kundenverwaltung;
-import de.bw.webservices.KundenverwaltungService;
+//import de.bw.webservices.KundenverwaltungService;
 import de.bw.webservices.Mitarbeiterverwaltung;
-import de.bw.webservices.MitarbeiterverwaltungService;
+//import de.bw.webservices.MitarbeiterverwaltungService;
 
 /**
  * @author Jonas Brandhorst/Johann Schäfer
@@ -33,28 +33,28 @@ public class BuecherweltClient {
 	 * Erzeugen der Webservices für die Tests und ruft die Methoden auf
 	 */
 	public static void main(String[] args) throws BuecherweltException_Exception {
-		MitarbeiterverwaltungService serviceMa = new MitarbeiterverwaltungService();
+		//MitarbeiterverwaltungService serviceMa = new MitarbeiterverwaltungService();
 		BuchverwaltungService serviceBu = new BuchverwaltungService();
-		KundenverwaltungService serviceKu = new KundenverwaltungService();
-		AusleihverwaltungService serviceAu = new AusleihverwaltungService();
+		//KundenverwaltungService serviceKu = new KundenverwaltungService();
+		//AusleihverwaltungService serviceAu = new AusleihverwaltungService();
 		
-		rmSystemMa = serviceMa.getMitarbeiterverwaltungPort();
+		//rmSystemMa = serviceMa.getMitarbeiterverwaltungPort();
 		rmSystemBu = serviceBu.getBuchverwaltungPort();
-		rmSystemKu = serviceKu.getKundenverwaltungPort();
-		rmSystemAu = serviceAu.getAusleihverwaltungPort();
+		//rmSystemKu = serviceKu.getKundenverwaltungPort();
+		//rmSystemAu = serviceAu.getAusleihverwaltungPort();
 		
-		szenarioMitarbeiterHinzufuegen();
-		szenarioKundeHinzufuegen();
+		//szenarioMitarbeiterHinzufuegen();
+		//szenarioKundeHinzufuegen();
 		szenarioBuchHinzufuegen();
-		szenarioAusleiheHinzufuegen();
-		szenarioAlleKundenAnzeigen();
+		//szenarioAusleiheHinzufuegen();
+		//szenarioAlleKundenAnzeigen();
 	}
 	
 	/**
 	 * @throws BuecherweltException_Exception
 	 * Testet das Hinzufügen eines neuen Mitarbeiters
 	 */
-	private static void szenarioMitarbeiterHinzufuegen() throws BuecherweltException_Exception {
+	/*private static void szenarioMitarbeiterHinzufuegen() throws BuecherweltException_Exception {
 		String vorname = "MaVorname";
 		String nachname = "MaNachname";
 		String plz = "MaPLZ";
@@ -66,13 +66,13 @@ public class BuecherweltClient {
 		String passwort = "MaPasswort";
 		
 		rmSystemMa.neuenMitarbeiterHinzufuegen(id, vorname, nachname, plz, ort, strasse, hnr, email, benutzer, passwort);
-	}
+	}*/
 	
 	/**
 	 * @throws BuecherweltException_Exception
 	 * Testet das Hinzufügen eines neuen Kunden
 	 */
-	private static void szenarioKundeHinzufuegen() throws BuecherweltException_Exception {
+	/*private static void szenarioKundeHinzufuegen() throws BuecherweltException_Exception {
 		String vorname = "KuVorname";
 		String nachname = "KuNachname";
 		String plz = "KuPLZ";
@@ -84,7 +84,7 @@ public class BuecherweltClient {
 		String passwort = "KuPasswort";
 		
 		rmSystemKu.kundeHinzufuegen(id, vorname, nachname, plz, ort, strasse, hnr, email, benutzer, passwort);
-	}
+	}*/
 	
 	/**
 	 * @throws BuecherweltException_Exception
@@ -96,14 +96,14 @@ public class BuecherweltClient {
 		int erscheinungsjahr = 2012;
 		int anzahl = 8;
 		
-		rmSystemBu.neuesBuchHinzufuegen(id, titel, autor, erscheinungsjahr, anzahl);
+		rmSystemBu.neuesBuchHinzufuegen(titel, autor, erscheinungsjahr, anzahl);
 		}
 	
 	/**
 	 * @throws BuecherweltException_Exception
 	 * Testet das Hinzufügen einer neuen Ausleihe
 	 */
-	public static void szenarioAusleiheHinzufuegen() throws BuecherweltException_Exception {
+	/*public static void szenarioAusleiheHinzufuegen() throws BuecherweltException_Exception {
 		Kunde kunde = new Kunde();
 		kunde = rmSystemKu.kundeSuchen(2);
 		Buch buch = new Buch();
@@ -116,12 +116,12 @@ public class BuecherweltClient {
 		else {
 			throw new BuecherweltException_Exception("Buch wurde nicht hinzugefügt!");
 		}
-		}
+		}*/
 	
 	/**
 	 * Testet die Anzeige aller Kunden in der Konsole
 	 */
-	public static void szenarioAlleKundenAnzeigen() {
+	/*public static void szenarioAlleKundenAnzeigen() {
 		System.out.println("Anzahl in Liste: " + rmSystemKu.getAllKunden().size());
 		for(Kunde kunde : rmSystemKu.getAllKunden()) {
 			System.out.println("KId: " + kunde.getId() + " KVorname: " + kunde.getVorname() +
@@ -130,5 +130,5 @@ public class BuecherweltClient {
 					" KEmail: " + kunde.getEmail() + " KBenutzername: " + kunde.getBenutzername() + 
 					" KPasswort: " + kunde.getPasswort());
 		}
-	}
+	}*/
 }

@@ -71,6 +71,18 @@ public class Mitarbeiterverwaltung {
 	
 	/**
 	 * @param sessionId
+	 * Logout-Methode für Mitarbeiter
+	 */
+	public SessionTO logout(int sessionId) {
+		dao.closeSession(sessionId);
+		logger.info("Logout erfolgreich. Session=" + sessionId);
+		SessionTO sessionTO = new SessionTO();
+		return sessionTO;
+		
+	}
+	
+	/**
+	 * @param sessionId
 	 * @return BuecherweltSession
 	 * @throws NoSessionException
 	 * Ausgabe einer bestimmten Session
