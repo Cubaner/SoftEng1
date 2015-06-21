@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für buchSuchenByName complex type.
+ * <p>Java-Klasse für leihfristVerlaengern complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="buchSuchenByName">
+ * &lt;complexType name="leihfristVerlaengern">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,34 +26,26 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "buchSuchenByName", propOrder = {
+@XmlType(name = "leihfristVerlaengern", propOrder = {
     "arg0"
 })
-public class BuchSuchenByName {
+public class LeihfristVerlaengern {
 
-    protected String arg0;
+    protected int arg0;
 
     /**
      * Ruft den Wert der arg0-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getArg0() {
+    public int getArg0() {
         return arg0;
     }
 
     /**
      * Legt den Wert der arg0-Eigenschaft fest.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setArg0(String value) {
+    public void setArg0(int value) {
         this.arg0 = value;
     }
 

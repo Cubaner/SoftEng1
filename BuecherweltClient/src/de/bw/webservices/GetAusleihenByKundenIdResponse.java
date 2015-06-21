@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für getAllBuecherResponse complex type.
+ * <p>Java-Klasse für getAusleihenByKundenIdResponse complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="getAllBuecherResponse">
+ * &lt;complexType name="getAusleihenByKundenIdResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://webservices.bw.de/}buchTO" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://webservices.bw.de/}ausleiheTO" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,13 +29,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getAllBuecherResponse", propOrder = {
+@XmlType(name = "getAusleihenByKundenIdResponse", propOrder = {
     "_return"
 })
-public class GetAllBuecherResponse {
+public class GetAusleihenByKundenIdResponse {
 
     @XmlElement(name = "return")
-    protected List<BuchTO> _return;
+    protected List<AusleiheTO> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class GetAllBuecherResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link BuchTO }
+     * {@link AusleiheTO }
      * 
      * 
      */
-    public List<BuchTO> getReturn() {
+    public List<AusleiheTO> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<BuchTO>();
+            _return = new ArrayList<AusleiheTO>();
         }
         return this._return;
     }

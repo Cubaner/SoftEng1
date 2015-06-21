@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für buchBearbeitenResponse complex type.
+ * <p>Java-Klasse für ausleiheLoeschenResponse complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="buchBearbeitenResponse">
+ * &lt;complexType name="ausleiheLoeschenResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -25,8 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "buchBearbeitenResponse")
-public class BuchBearbeitenResponse {
+@XmlType(name = "ausleiheLoeschenResponse")
+public class AusleiheLoeschenResponse {
 
 
 }

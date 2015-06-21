@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für getAllBuecher complex type.
+ * <p>Java-Klasse für leihfristVerlaengernResponse complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="getAllBuecher">
+ * &lt;complexType name="leihfristVerlaengernResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -25,8 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getAllBuecher")
-public class GetAllBuecher {
+@XmlType(name = "leihfristVerlaengernResponse")
+public class LeihfristVerlaengernResponse {
 
 
 }

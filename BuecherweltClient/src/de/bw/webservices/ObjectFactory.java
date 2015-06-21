@@ -24,19 +24,23 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetAllBuecher_QNAME = new QName("http://webservices.bw.de/", "getAllBuecher");
-    private final static QName _BuchBearbeitenResponse_QNAME = new QName("http://webservices.bw.de/", "buchBearbeitenResponse");
-    private final static QName _BuchBearbeiten_QNAME = new QName("http://webservices.bw.de/", "buchBearbeiten");
+    private final static QName _AnzahlErhoehen_QNAME = new QName("http://webservices.bw.de/", "anzahlErhoehen");
+    private final static QName _AnzahlVerringernResponse_QNAME = new QName("http://webservices.bw.de/", "anzahlVerringernResponse");
+    private final static QName _AnzahlErhoehenResponse_QNAME = new QName("http://webservices.bw.de/", "anzahlErhoehenResponse");
+    private final static QName _AusleiheLoeschen_QNAME = new QName("http://webservices.bw.de/", "ausleiheLoeschen");
     private final static QName _BuecherweltException_QNAME = new QName("http://webservices.bw.de/", "BuecherweltException");
-    private final static QName _BuchSuchenByName_QNAME = new QName("http://webservices.bw.de/", "buchSuchenByName");
-    private final static QName _BuchLoeschenResponse_QNAME = new QName("http://webservices.bw.de/", "buchLoeschenResponse");
-    private final static QName _BuchSuchenResponse_QNAME = new QName("http://webservices.bw.de/", "buchSuchenResponse");
-    private final static QName _NeuesBuchHinzufuegenResponse_QNAME = new QName("http://webservices.bw.de/", "neuesBuchHinzufuegenResponse");
-    private final static QName _BuchSuchenByNameResponse_QNAME = new QName("http://webservices.bw.de/", "buchSuchenByNameResponse");
-    private final static QName _BuchSuchen_QNAME = new QName("http://webservices.bw.de/", "buchSuchen");
-    private final static QName _BuchLoeschen_QNAME = new QName("http://webservices.bw.de/", "buchLoeschen");
-    private final static QName _NeuesBuchHinzufuegen_QNAME = new QName("http://webservices.bw.de/", "neuesBuchHinzufuegen");
-    private final static QName _GetAllBuecherResponse_QNAME = new QName("http://webservices.bw.de/", "getAllBuecherResponse");
+    private final static QName _AusleiheSuchenResponse_QNAME = new QName("http://webservices.bw.de/", "ausleiheSuchenResponse");
+    private final static QName _NeueAusleiheHinzufuegen_QNAME = new QName("http://webservices.bw.de/", "neueAusleiheHinzufuegen");
+    private final static QName _AnzahlVerringern_QNAME = new QName("http://webservices.bw.de/", "anzahlVerringern");
+    private final static QName _AusleiheSuchen_QNAME = new QName("http://webservices.bw.de/", "ausleiheSuchen");
+    private final static QName _GetAllAusleihen_QNAME = new QName("http://webservices.bw.de/", "getAllAusleihen");
+    private final static QName _GetAusleihenByKundenId_QNAME = new QName("http://webservices.bw.de/", "getAusleihenByKundenId");
+    private final static QName _LeihfristVerlaengern_QNAME = new QName("http://webservices.bw.de/", "leihfristVerlaengern");
+    private final static QName _AusleiheLoeschenResponse_QNAME = new QName("http://webservices.bw.de/", "ausleiheLoeschenResponse");
+    private final static QName _GetAllAusleihenResponse_QNAME = new QName("http://webservices.bw.de/", "getAllAusleihenResponse");
+    private final static QName _LeihfristVerlaengernResponse_QNAME = new QName("http://webservices.bw.de/", "leihfristVerlaengernResponse");
+    private final static QName _GetAusleihenByKundenIdResponse_QNAME = new QName("http://webservices.bw.de/", "getAusleihenByKundenIdResponse");
+    private final static QName _NeueAusleiheHinzufuegenResponse_QNAME = new QName("http://webservices.bw.de/", "neueAusleiheHinzufuegenResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: de.bw.webservices
@@ -46,67 +50,59 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BuchSuchen }
+     * Create an instance of {@link AnzahlErhoehenResponse }
      * 
      */
-    public BuchSuchen createBuchSuchen() {
-        return new BuchSuchen();
+    public AnzahlErhoehenResponse createAnzahlErhoehenResponse() {
+        return new AnzahlErhoehenResponse();
     }
 
     /**
-     * Create an instance of {@link BuchSuchenByNameResponse }
+     * Create an instance of {@link AusleiheLoeschen }
      * 
      */
-    public BuchSuchenByNameResponse createBuchSuchenByNameResponse() {
-        return new BuchSuchenByNameResponse();
+    public AusleiheLoeschen createAusleiheLoeschen() {
+        return new AusleiheLoeschen();
     }
 
     /**
-     * Create an instance of {@link BuchBearbeitenResponse }
+     * Create an instance of {@link AnzahlErhoehen }
      * 
      */
-    public BuchBearbeitenResponse createBuchBearbeitenResponse() {
-        return new BuchBearbeitenResponse();
+    public AnzahlErhoehen createAnzahlErhoehen() {
+        return new AnzahlErhoehen();
     }
 
     /**
-     * Create an instance of {@link GetAllBuecher }
+     * Create an instance of {@link AnzahlVerringernResponse }
      * 
      */
-    public GetAllBuecher createGetAllBuecher() {
-        return new GetAllBuecher();
+    public AnzahlVerringernResponse createAnzahlVerringernResponse() {
+        return new AnzahlVerringernResponse();
     }
 
     /**
-     * Create an instance of {@link BuchBearbeiten }
+     * Create an instance of {@link AusleiheSuchen }
      * 
      */
-    public BuchBearbeiten createBuchBearbeiten() {
-        return new BuchBearbeiten();
+    public AusleiheSuchen createAusleiheSuchen() {
+        return new AusleiheSuchen();
     }
 
     /**
-     * Create an instance of {@link BuchLoeschen }
+     * Create an instance of {@link NeueAusleiheHinzufuegen }
      * 
      */
-    public BuchLoeschen createBuchLoeschen() {
-        return new BuchLoeschen();
+    public NeueAusleiheHinzufuegen createNeueAusleiheHinzufuegen() {
+        return new NeueAusleiheHinzufuegen();
     }
 
     /**
-     * Create an instance of {@link BuchSuchenByName }
+     * Create an instance of {@link AnzahlVerringern }
      * 
      */
-    public BuchSuchenByName createBuchSuchenByName() {
-        return new BuchSuchenByName();
-    }
-
-    /**
-     * Create an instance of {@link BuchLoeschenResponse }
-     * 
-     */
-    public BuchLoeschenResponse createBuchLoeschenResponse() {
-        return new BuchLoeschenResponse();
+    public AnzahlVerringern createAnzahlVerringern() {
+        return new AnzahlVerringern();
     }
 
     /**
@@ -118,70 +114,119 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link NeuesBuchHinzufuegenResponse }
+     * Create an instance of {@link AusleiheSuchenResponse }
      * 
      */
-    public NeuesBuchHinzufuegenResponse createNeuesBuchHinzufuegenResponse() {
-        return new NeuesBuchHinzufuegenResponse();
+    public AusleiheSuchenResponse createAusleiheSuchenResponse() {
+        return new AusleiheSuchenResponse();
     }
 
     /**
-     * Create an instance of {@link GetAllBuecherResponse }
+     * Create an instance of {@link LeihfristVerlaengern }
      * 
      */
-    public GetAllBuecherResponse createGetAllBuecherResponse() {
-        return new GetAllBuecherResponse();
+    public LeihfristVerlaengern createLeihfristVerlaengern() {
+        return new LeihfristVerlaengern();
     }
 
     /**
-     * Create an instance of {@link NeuesBuchHinzufuegen }
+     * Create an instance of {@link AusleiheLoeschenResponse }
      * 
      */
-    public NeuesBuchHinzufuegen createNeuesBuchHinzufuegen() {
-        return new NeuesBuchHinzufuegen();
+    public AusleiheLoeschenResponse createAusleiheLoeschenResponse() {
+        return new AusleiheLoeschenResponse();
     }
 
     /**
-     * Create an instance of {@link BuchSuchenResponse }
+     * Create an instance of {@link GetAusleihenByKundenId }
      * 
      */
-    public BuchSuchenResponse createBuchSuchenResponse() {
-        return new BuchSuchenResponse();
+    public GetAusleihenByKundenId createGetAusleihenByKundenId() {
+        return new GetAusleihenByKundenId();
     }
 
     /**
-     * Create an instance of {@link BuchTO }
+     * Create an instance of {@link GetAllAusleihen }
      * 
      */
-    public BuchTO createBuchTO() {
-        return new BuchTO();
+    public GetAllAusleihen createGetAllAusleihen() {
+        return new GetAllAusleihen();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllBuecher }{@code >}}
+     * Create an instance of {@link LeihfristVerlaengernResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAllBuecher")
-    public JAXBElement<GetAllBuecher> createGetAllBuecher(GetAllBuecher value) {
-        return new JAXBElement<GetAllBuecher>(_GetAllBuecher_QNAME, GetAllBuecher.class, null, value);
+    public LeihfristVerlaengernResponse createLeihfristVerlaengernResponse() {
+        return new LeihfristVerlaengernResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuchBearbeitenResponse }{@code >}}
+     * Create an instance of {@link GetAllAusleihenResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "buchBearbeitenResponse")
-    public JAXBElement<BuchBearbeitenResponse> createBuchBearbeitenResponse(BuchBearbeitenResponse value) {
-        return new JAXBElement<BuchBearbeitenResponse>(_BuchBearbeitenResponse_QNAME, BuchBearbeitenResponse.class, null, value);
+    public GetAllAusleihenResponse createGetAllAusleihenResponse() {
+        return new GetAllAusleihenResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuchBearbeiten }{@code >}}
+     * Create an instance of {@link NeueAusleiheHinzufuegenResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "buchBearbeiten")
-    public JAXBElement<BuchBearbeiten> createBuchBearbeiten(BuchBearbeiten value) {
-        return new JAXBElement<BuchBearbeiten>(_BuchBearbeiten_QNAME, BuchBearbeiten.class, null, value);
+    public NeueAusleiheHinzufuegenResponse createNeueAusleiheHinzufuegenResponse() {
+        return new NeueAusleiheHinzufuegenResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetAusleihenByKundenIdResponse }
+     * 
+     */
+    public GetAusleihenByKundenIdResponse createGetAusleihenByKundenIdResponse() {
+        return new GetAusleihenByKundenIdResponse();
+    }
+
+    /**
+     * Create an instance of {@link AusleiheTO }
+     * 
+     */
+    public AusleiheTO createAusleiheTO() {
+        return new AusleiheTO();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AnzahlErhoehen }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "anzahlErhoehen")
+    public JAXBElement<AnzahlErhoehen> createAnzahlErhoehen(AnzahlErhoehen value) {
+        return new JAXBElement<AnzahlErhoehen>(_AnzahlErhoehen_QNAME, AnzahlErhoehen.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AnzahlVerringernResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "anzahlVerringernResponse")
+    public JAXBElement<AnzahlVerringernResponse> createAnzahlVerringernResponse(AnzahlVerringernResponse value) {
+        return new JAXBElement<AnzahlVerringernResponse>(_AnzahlVerringernResponse_QNAME, AnzahlVerringernResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AnzahlErhoehenResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "anzahlErhoehenResponse")
+    public JAXBElement<AnzahlErhoehenResponse> createAnzahlErhoehenResponse(AnzahlErhoehenResponse value) {
+        return new JAXBElement<AnzahlErhoehenResponse>(_AnzahlErhoehenResponse_QNAME, AnzahlErhoehenResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AusleiheLoeschen }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "ausleiheLoeschen")
+    public JAXBElement<AusleiheLoeschen> createAusleiheLoeschen(AusleiheLoeschen value) {
+        return new JAXBElement<AusleiheLoeschen>(_AusleiheLoeschen_QNAME, AusleiheLoeschen.class, null, value);
     }
 
     /**
@@ -194,84 +239,111 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuchSuchenByName }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AusleiheSuchenResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "buchSuchenByName")
-    public JAXBElement<BuchSuchenByName> createBuchSuchenByName(BuchSuchenByName value) {
-        return new JAXBElement<BuchSuchenByName>(_BuchSuchenByName_QNAME, BuchSuchenByName.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "ausleiheSuchenResponse")
+    public JAXBElement<AusleiheSuchenResponse> createAusleiheSuchenResponse(AusleiheSuchenResponse value) {
+        return new JAXBElement<AusleiheSuchenResponse>(_AusleiheSuchenResponse_QNAME, AusleiheSuchenResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuchLoeschenResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link NeueAusleiheHinzufuegen }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "buchLoeschenResponse")
-    public JAXBElement<BuchLoeschenResponse> createBuchLoeschenResponse(BuchLoeschenResponse value) {
-        return new JAXBElement<BuchLoeschenResponse>(_BuchLoeschenResponse_QNAME, BuchLoeschenResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "neueAusleiheHinzufuegen")
+    public JAXBElement<NeueAusleiheHinzufuegen> createNeueAusleiheHinzufuegen(NeueAusleiheHinzufuegen value) {
+        return new JAXBElement<NeueAusleiheHinzufuegen>(_NeueAusleiheHinzufuegen_QNAME, NeueAusleiheHinzufuegen.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuchSuchenResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AnzahlVerringern }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "buchSuchenResponse")
-    public JAXBElement<BuchSuchenResponse> createBuchSuchenResponse(BuchSuchenResponse value) {
-        return new JAXBElement<BuchSuchenResponse>(_BuchSuchenResponse_QNAME, BuchSuchenResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "anzahlVerringern")
+    public JAXBElement<AnzahlVerringern> createAnzahlVerringern(AnzahlVerringern value) {
+        return new JAXBElement<AnzahlVerringern>(_AnzahlVerringern_QNAME, AnzahlVerringern.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NeuesBuchHinzufuegenResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AusleiheSuchen }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "neuesBuchHinzufuegenResponse")
-    public JAXBElement<NeuesBuchHinzufuegenResponse> createNeuesBuchHinzufuegenResponse(NeuesBuchHinzufuegenResponse value) {
-        return new JAXBElement<NeuesBuchHinzufuegenResponse>(_NeuesBuchHinzufuegenResponse_QNAME, NeuesBuchHinzufuegenResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "ausleiheSuchen")
+    public JAXBElement<AusleiheSuchen> createAusleiheSuchen(AusleiheSuchen value) {
+        return new JAXBElement<AusleiheSuchen>(_AusleiheSuchen_QNAME, AusleiheSuchen.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuchSuchenByNameResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllAusleihen }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "buchSuchenByNameResponse")
-    public JAXBElement<BuchSuchenByNameResponse> createBuchSuchenByNameResponse(BuchSuchenByNameResponse value) {
-        return new JAXBElement<BuchSuchenByNameResponse>(_BuchSuchenByNameResponse_QNAME, BuchSuchenByNameResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAllAusleihen")
+    public JAXBElement<GetAllAusleihen> createGetAllAusleihen(GetAllAusleihen value) {
+        return new JAXBElement<GetAllAusleihen>(_GetAllAusleihen_QNAME, GetAllAusleihen.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuchSuchen }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAusleihenByKundenId }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "buchSuchen")
-    public JAXBElement<BuchSuchen> createBuchSuchen(BuchSuchen value) {
-        return new JAXBElement<BuchSuchen>(_BuchSuchen_QNAME, BuchSuchen.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAusleihenByKundenId")
+    public JAXBElement<GetAusleihenByKundenId> createGetAusleihenByKundenId(GetAusleihenByKundenId value) {
+        return new JAXBElement<GetAusleihenByKundenId>(_GetAusleihenByKundenId_QNAME, GetAusleihenByKundenId.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuchLoeschen }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link LeihfristVerlaengern }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "buchLoeschen")
-    public JAXBElement<BuchLoeschen> createBuchLoeschen(BuchLoeschen value) {
-        return new JAXBElement<BuchLoeschen>(_BuchLoeschen_QNAME, BuchLoeschen.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "leihfristVerlaengern")
+    public JAXBElement<LeihfristVerlaengern> createLeihfristVerlaengern(LeihfristVerlaengern value) {
+        return new JAXBElement<LeihfristVerlaengern>(_LeihfristVerlaengern_QNAME, LeihfristVerlaengern.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NeuesBuchHinzufuegen }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AusleiheLoeschenResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "neuesBuchHinzufuegen")
-    public JAXBElement<NeuesBuchHinzufuegen> createNeuesBuchHinzufuegen(NeuesBuchHinzufuegen value) {
-        return new JAXBElement<NeuesBuchHinzufuegen>(_NeuesBuchHinzufuegen_QNAME, NeuesBuchHinzufuegen.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "ausleiheLoeschenResponse")
+    public JAXBElement<AusleiheLoeschenResponse> createAusleiheLoeschenResponse(AusleiheLoeschenResponse value) {
+        return new JAXBElement<AusleiheLoeschenResponse>(_AusleiheLoeschenResponse_QNAME, AusleiheLoeschenResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllBuecherResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllAusleihenResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAllBuecherResponse")
-    public JAXBElement<GetAllBuecherResponse> createGetAllBuecherResponse(GetAllBuecherResponse value) {
-        return new JAXBElement<GetAllBuecherResponse>(_GetAllBuecherResponse_QNAME, GetAllBuecherResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAllAusleihenResponse")
+    public JAXBElement<GetAllAusleihenResponse> createGetAllAusleihenResponse(GetAllAusleihenResponse value) {
+        return new JAXBElement<GetAllAusleihenResponse>(_GetAllAusleihenResponse_QNAME, GetAllAusleihenResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LeihfristVerlaengernResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "leihfristVerlaengernResponse")
+    public JAXBElement<LeihfristVerlaengernResponse> createLeihfristVerlaengernResponse(LeihfristVerlaengernResponse value) {
+        return new JAXBElement<LeihfristVerlaengernResponse>(_LeihfristVerlaengernResponse_QNAME, LeihfristVerlaengernResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAusleihenByKundenIdResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAusleihenByKundenIdResponse")
+    public JAXBElement<GetAusleihenByKundenIdResponse> createGetAusleihenByKundenIdResponse(GetAusleihenByKundenIdResponse value) {
+        return new JAXBElement<GetAusleihenByKundenIdResponse>(_GetAusleihenByKundenIdResponse_QNAME, GetAusleihenByKundenIdResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NeueAusleiheHinzufuegenResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "neueAusleiheHinzufuegenResponse")
+    public JAXBElement<NeueAusleiheHinzufuegenResponse> createNeueAusleiheHinzufuegenResponse(NeueAusleiheHinzufuegenResponse value) {
+        return new JAXBElement<NeueAusleiheHinzufuegenResponse>(_NeueAusleiheHinzufuegenResponse_QNAME, NeueAusleiheHinzufuegenResponse.class, null, value);
     }
 
 }

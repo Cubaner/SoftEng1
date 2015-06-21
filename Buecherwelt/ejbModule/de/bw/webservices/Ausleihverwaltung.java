@@ -73,16 +73,16 @@ public class Ausleihverwaltung {
 	 * @throws BuecherweltException
 	 * Erstellt eine neue Ausleihe über die DAO-Klasse mit der aktuellen Systemzeit
 	 */
-	public AusleiheTO neueAusleiheHinzufuegen(int id, Kunde kunde, Buch buch) throws BuecherweltException {
+	public AusleiheTO neueAusleiheHinzufuegen(int id, int kundenId, int buchId) throws BuecherweltException {
 		Date date = new Date();
 		Timestamp leihdatum = new Timestamp(date.getTime());
-		Ausleihe ausleihe = dao.createAusleihe(id, leihdatum, kunde.getId(), buch.getId());
+		Ausleihe ausleihe = dao.createAusleihe(id, leihdatum, kundenId, buchId);
 		if (ausleihe == null) {
 			logger.info("Hinzufuegen fehlgeschlagen, da die Ausleihe bereits existiert");
 			throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da die Ausleihe bereits existiert");
 		}
 		else {
-			anzahlVerringern(buch.getId());
+			anzahlVerringern(buchId);
 			AusleiheTO ausleiheTO = dtoErzeuger.createAusleiheDTO(ausleihe);
 			logger.info("Ausleihe hinzugefügt und Anzahl um 1 verringert");
 			return ausleiheTO;
