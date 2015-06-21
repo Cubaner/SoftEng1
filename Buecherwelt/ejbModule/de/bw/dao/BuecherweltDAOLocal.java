@@ -57,7 +57,7 @@ public interface BuecherweltDAOLocal {
 	
 	public Ausleihe findAusleiheById(int id);
 	
-	public Ausleihe createAusleihe(int id, Date leihdatum, int kundenId, int buchId);
+	public Ausleihe createAusleihe(int id, Date leihdatum, Date rueckgabedatum, int kundenId, int buchId);
 	
 	public void deleteAusleihe(int id);
 	

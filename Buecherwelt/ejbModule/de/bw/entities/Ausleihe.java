@@ -18,6 +18,7 @@ public class Ausleihe {
 	private int id;
 	
 	private Date leihdatum;
+	private Date rueckgabedatum;
 	private int kundenId;
 	private int buchId;
 	
@@ -25,8 +26,9 @@ public class Ausleihe {
 		super();
 	}
 	
-	public Ausleihe(Date leihdatum, int kundenId, int buchId) {
+	public Ausleihe(Date leihdatum, Date rueckgabedatum, int kundenId, int buchId) {
 		this.leihdatum = leihdatum;
+		this.rueckgabedatum = rueckgabedatum;
 		this.kundenId = kundenId;
 		this.buchId = buchId;
 	}
@@ -42,21 +44,29 @@ public class Ausleihe {
 	public Date getLeihdatum() {
 		return this.leihdatum;
 	}
-
-	public int getKundenId() {
-		return this.kundenId;
-	}
-	
-	public int getBuchId() {
-		return this.buchId;
-	}
 	
 	public void setLeihdatum(Date leihdatum) {
 		this.leihdatum = leihdatum;
 	}
 	
+	public Date getRueckgabedatum() {
+		return this.rueckgabedatum;
+	}
+	
+	public void setRueckgabedatum(Date rueckgabedatum) {
+		this.rueckgabedatum = rueckgabedatum;
+	}
+
+	public int getKundenId() {
+		return this.kundenId;
+	}
+	
 	public void setKundenId(int kundenId) {
 		this.kundenId = kundenId;
+	}
+	
+	public int getBuchId() {
+		return this.buchId;
 	}
 	
 	public void setBuchId(int buchId) {

@@ -107,7 +107,6 @@ public class BuecherweltClient {
 		AusleiheTO ausleihe = new AusleiheTO();
 		ausleihe = rmSystemAu.neueAusleiheHinzufuegen(id, 2, 3);
 		if(ausleihe != null) {
-		rmSystemAu.leihfristVerlaengern(ausleihe.getId());
 		}
 		else {
 			throw new BuecherweltException_Exception("Buch wurde nicht hinzugefügt!");

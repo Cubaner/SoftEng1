@@ -75,8 +75,13 @@ public class Ausleihverwaltung {
 	 */
 	public AusleiheTO neueAusleiheHinzufuegen(int id, int kundenId, int buchId) throws BuecherweltException {
 		Date date = new Date();
+		Date rueckgabedatum = new Date();
 		Timestamp leihdatum = new Timestamp(date.getTime());
-		Ausleihe ausleihe = dao.createAusleihe(id, leihdatum, kundenId, buchId);
+		GregorianCalendar cal = new GregorianCalendar();
+		cal.setTime(date);
+		cal.add(Calendar.MONTH, 1);
+		rueckgabedatum = cal.getTime();		
+		Ausleihe ausleihe = dao.createAusleihe(id, leihdatum, rueckgabedatum, kundenId, buchId);
 		if (ausleihe == null) {
 			logger.info("Hinzufuegen fehlgeschlagen, da die Ausleihe bereits existiert");
 			throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da die Ausleihe bereits existiert");
@@ -143,17 +148,17 @@ public class Ausleihverwaltung {
 	 * Methode zum Verlängern der Leihfrist um einen Monat
 	 * @throws BuecherweltException 
 	 */
-	public void leihfristVerlaengern(int id) throws BuecherweltException {
-		Date leihdatum = new Date();
+	public Date leihfristVerlaengern(int id) throws BuecherweltException {
+		Date rueckgabedatum = new Date();
 		Ausleihe ausleihe = dao.findAusleiheById(id);
 		if(ausleihe != null) {
-			GregorianCalendar altCal = new GregorianCalendar();
-			altCal.setTime(ausleihe.getLeihdatum());
 			GregorianCalendar cal = new GregorianCalendar();
+			cal.setTime(ausleihe.getRueckgabedatum());
 			cal.add(Calendar.MONTH, 1);
-			leihdatum = cal.getTime();
-			ausleihe.setLeihdatum(leihdatum);
-			logger.info("Neues Datum: " + leihdatum);
+			rueckgabedatum = cal.getTime();
+			ausleihe.setRueckgabedatum(rueckgabedatum);
+			logger.info("Neues Datum: " + rueckgabedatum);
+			return rueckgabedatum;
 		}
 		else {
 			logger.info("Ausleihe nicht gefunden");

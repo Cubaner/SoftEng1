@@ -242,9 +242,9 @@ public class BuecherweltDAO implements BuecherweltDAOLocal{
 	 * @return Ausleihe
 	 * Erzeugung einer neuen Ausleihe mit allen Parametern
 	 */
-	public Ausleihe createAusleihe(int id, Date leihdatum, int kundenId, int buchId) {
+	public Ausleihe createAusleihe(int id, Date leihdatum, Date rueckgabedatum, int kundenId, int buchId) {
 		if(findAusleiheById(id) == null) {
-			Ausleihe ausleihe = new Ausleihe(leihdatum, kundenId, buchId);
+			Ausleihe ausleihe = new Ausleihe(leihdatum, rueckgabedatum, kundenId, buchId);
 			em.persist(ausleihe);
 			return ausleihe;
 		}
