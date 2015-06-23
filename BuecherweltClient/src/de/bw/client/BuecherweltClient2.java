@@ -1,13 +1,14 @@
 package de.bw.client;
 
 
-import de.bw.exception.BuecherweltException;
-import de.bw.webservices.Ausleihe;
+import de.bw.webservices.AusleiheTO;
 import de.bw.webservices.Ausleihverwaltung;
 import de.bw.webservices.AusleihverwaltungService;
 import de.bw.webservices.BuecherweltException_Exception;
+import de.bw.webservices.InvalidLoginException_Exception;
 import de.bw.webservices.Kundenverwaltung;
 import de.bw.webservices.KundenverwaltungService;
+import de.bw.webservices.SessionTO;
 
 /**
  * @author Jonas Brandhorst/Johann Schäfer
@@ -21,8 +22,9 @@ public class BuecherweltClient2 {
 	/**
 	 * @throws BuecherweltException_Exception 
 	 * Erzeugen der Webservices für die Tests und ruft die Methoden auf
+	 * @throws InvalidLoginException_Exception 
 	 */
-	public static void main(String[] args) throws BuecherweltException_Exception {
+	public static void main(String[] args) throws BuecherweltException_Exception, InvalidLoginException_Exception {
 		AusleihverwaltungService serviceAu = new AusleihverwaltungService();
 		KundenverwaltungService serviceKu = new KundenverwaltungService();
 
@@ -40,15 +42,16 @@ public class BuecherweltClient2 {
 		 */
 		public static void szenarioAusleihenByKundenIdAnzeigen() throws BuecherweltException_Exception{
 			System.out.println(rmSystemAu.getAusleihenByKundenId(2).size());
-			for(Ausleihe ausleihe : rmSystemAu.getAusleihenByKundenId(2)) {
+			for(AusleiheTO ausleihe : rmSystemAu.getAusleihenByKundenId(2)) {
 				System.out.println("AusleihId: " + ausleihe.getId() + " KundenId: " + ausleihe.getKundenId() + " BuchId: " + ausleihe.getBuchId());
 			}
 		}
 		
 		/**
 		 * Testet das Bearbeiten eines in der Datenbank vorhandenen Kunden
+		 * @throws BuecherweltException_Exception 
 		 */
-		public static void szenarioKundeBearbeiten() {
+		public static void szenarioKundeBearbeiten() throws BuecherweltException_Exception {
 			String vorname = "neuerVornameKunde";
 			String nachname = "neuerNachnameKunde";
 			String plz = "neuePLZKunde";
@@ -65,11 +68,12 @@ public class BuecherweltClient2 {
 		
 		/**
 		 * Testet das Einloggen eines Kunden
+		 * @throws InvalidLoginException_Exception 
 		 */
-		public static void szenarioKundenLogin() {
+		public static void szenarioKundenLogin() throws InvalidLoginException_Exception {
 			String benutzer = "neuerBenutzerKunde";
 			String passwort = "neuePasswortKunde";
-			boolean erfolgreich = rmSystemKu.loginKunde(benutzer, passwort);
+			SessionTO erfolgreich = rmSystemKu.loginKunde(benutzer, passwort);
 			System.out.println(erfolgreich);
 		}
 }

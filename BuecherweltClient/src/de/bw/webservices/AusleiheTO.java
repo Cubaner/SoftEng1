@@ -22,6 +22,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="kundenId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="leihdatum" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="rueckgabedatum" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,7 +36,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "buchId",
     "id",
     "kundenId",
-    "leihdatum"
+    "leihdatum",
+    "rueckgabedatum"
 })
 public class AusleiheTO {
 
@@ -44,6 +46,8 @@ public class AusleiheTO {
     protected int kundenId;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar leihdatum;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar rueckgabedatum;
 
     /**
      * Ruft den Wert der buchId-Eigenschaft ab.
@@ -115,6 +119,30 @@ public class AusleiheTO {
      */
     public void setLeihdatum(XMLGregorianCalendar value) {
         this.leihdatum = value;
+    }
+
+    /**
+     * Ruft den Wert der rueckgabedatum-Eigenschaft ab.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getRueckgabedatum() {
+        return rueckgabedatum;
+    }
+
+    /**
+     * Legt den Wert der rueckgabedatum-Eigenschaft fest.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setRueckgabedatum(XMLGregorianCalendar value) {
+        this.rueckgabedatum = value;
     }
 
 }

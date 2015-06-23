@@ -1,10 +1,6 @@
 package de.bw.client;
 
 
-import de.bw.exception.BuecherweltException;
-import de.bw.webservices.Ausleihe;
-import de.bw.webservices.Ausleihverwaltung;
-import de.bw.webservices.AusleihverwaltungService;
 import de.bw.webservices.BuecherweltException_Exception;
 import de.bw.webservices.Kundenverwaltung;
 import de.bw.webservices.KundenverwaltungService;

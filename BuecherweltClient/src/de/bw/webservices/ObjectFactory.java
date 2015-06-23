@@ -24,23 +24,24 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _AnzahlErhoehen_QNAME = new QName("http://webservices.bw.de/", "anzahlErhoehen");
-    private final static QName _AnzahlVerringernResponse_QNAME = new QName("http://webservices.bw.de/", "anzahlVerringernResponse");
-    private final static QName _AnzahlErhoehenResponse_QNAME = new QName("http://webservices.bw.de/", "anzahlErhoehenResponse");
-    private final static QName _AusleiheLoeschen_QNAME = new QName("http://webservices.bw.de/", "ausleiheLoeschen");
+    private final static QName _MitarbeiterLoeschenResponse_QNAME = new QName("http://webservices.bw.de/", "mitarbeiterLoeschenResponse");
+    private final static QName _MitarbeiterSuchen_QNAME = new QName("http://webservices.bw.de/", "mitarbeiterSuchen");
+    private final static QName _GetAllMitarbeiter_QNAME = new QName("http://webservices.bw.de/", "getAllMitarbeiter");
+    private final static QName _MitarbeiterSuchenResponse_QNAME = new QName("http://webservices.bw.de/", "mitarbeiterSuchenResponse");
     private final static QName _BuecherweltException_QNAME = new QName("http://webservices.bw.de/", "BuecherweltException");
-    private final static QName _AusleiheSuchenResponse_QNAME = new QName("http://webservices.bw.de/", "ausleiheSuchenResponse");
-    private final static QName _NeueAusleiheHinzufuegen_QNAME = new QName("http://webservices.bw.de/", "neueAusleiheHinzufuegen");
-    private final static QName _AnzahlVerringern_QNAME = new QName("http://webservices.bw.de/", "anzahlVerringern");
-    private final static QName _AusleiheSuchen_QNAME = new QName("http://webservices.bw.de/", "ausleiheSuchen");
-    private final static QName _GetAllAusleihen_QNAME = new QName("http://webservices.bw.de/", "getAllAusleihen");
-    private final static QName _GetAusleihenByKundenId_QNAME = new QName("http://webservices.bw.de/", "getAusleihenByKundenId");
-    private final static QName _LeihfristVerlaengern_QNAME = new QName("http://webservices.bw.de/", "leihfristVerlaengern");
-    private final static QName _AusleiheLoeschenResponse_QNAME = new QName("http://webservices.bw.de/", "ausleiheLoeschenResponse");
-    private final static QName _GetAllAusleihenResponse_QNAME = new QName("http://webservices.bw.de/", "getAllAusleihenResponse");
-    private final static QName _LeihfristVerlaengernResponse_QNAME = new QName("http://webservices.bw.de/", "leihfristVerlaengernResponse");
-    private final static QName _GetAusleihenByKundenIdResponse_QNAME = new QName("http://webservices.bw.de/", "getAusleihenByKundenIdResponse");
-    private final static QName _NeueAusleiheHinzufuegenResponse_QNAME = new QName("http://webservices.bw.de/", "neueAusleiheHinzufuegenResponse");
+    private final static QName _GetAllMitarbeiterResponse_QNAME = new QName("http://webservices.bw.de/", "getAllMitarbeiterResponse");
+    private final static QName _MitarbeiterBearbeitenResponse_QNAME = new QName("http://webservices.bw.de/", "mitarbeiterBearbeitenResponse");
+    private final static QName _MitarbeiterBearbeiten_QNAME = new QName("http://webservices.bw.de/", "mitarbeiterBearbeiten");
+    private final static QName _MitarbeiterSuchenByBenutzername_QNAME = new QName("http://webservices.bw.de/", "mitarbeiterSuchenByBenutzername");
+    private final static QName _InvalidLoginException_QNAME = new QName("http://webservices.bw.de/", "InvalidLoginException");
+    private final static QName _NeuenMitarbeiterHinzufuegenResponse_QNAME = new QName("http://webservices.bw.de/", "neuenMitarbeiterHinzufuegenResponse");
+    private final static QName _Logout_QNAME = new QName("http://webservices.bw.de/", "logout");
+    private final static QName _NeuenMitarbeiterHinzufuegen_QNAME = new QName("http://webservices.bw.de/", "neuenMitarbeiterHinzufuegen");
+    private final static QName _LoginMitarbeiterResponse_QNAME = new QName("http://webservices.bw.de/", "loginMitarbeiterResponse");
+    private final static QName _LogoutResponse_QNAME = new QName("http://webservices.bw.de/", "logoutResponse");
+    private final static QName _MitarbeiterLoeschen_QNAME = new QName("http://webservices.bw.de/", "mitarbeiterLoeschen");
+    private final static QName _LoginMitarbeiter_QNAME = new QName("http://webservices.bw.de/", "loginMitarbeiter");
+    private final static QName _MitarbeiterSuchenByBenutzernameResponse_QNAME = new QName("http://webservices.bw.de/", "mitarbeiterSuchenByBenutzernameResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: de.bw.webservices
@@ -50,59 +51,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AnzahlErhoehenResponse }
+     * Create an instance of {@link MitarbeiterLoeschenResponse }
      * 
      */
-    public AnzahlErhoehenResponse createAnzahlErhoehenResponse() {
-        return new AnzahlErhoehenResponse();
+    public MitarbeiterLoeschenResponse createMitarbeiterLoeschenResponse() {
+        return new MitarbeiterLoeschenResponse();
     }
 
     /**
-     * Create an instance of {@link AusleiheLoeschen }
+     * Create an instance of {@link MitarbeiterSuchenResponse }
      * 
      */
-    public AusleiheLoeschen createAusleiheLoeschen() {
-        return new AusleiheLoeschen();
+    public MitarbeiterSuchenResponse createMitarbeiterSuchenResponse() {
+        return new MitarbeiterSuchenResponse();
     }
 
     /**
-     * Create an instance of {@link AnzahlErhoehen }
+     * Create an instance of {@link GetAllMitarbeiter }
      * 
      */
-    public AnzahlErhoehen createAnzahlErhoehen() {
-        return new AnzahlErhoehen();
+    public GetAllMitarbeiter createGetAllMitarbeiter() {
+        return new GetAllMitarbeiter();
     }
 
     /**
-     * Create an instance of {@link AnzahlVerringernResponse }
+     * Create an instance of {@link MitarbeiterSuchen }
      * 
      */
-    public AnzahlVerringernResponse createAnzahlVerringernResponse() {
-        return new AnzahlVerringernResponse();
+    public MitarbeiterSuchen createMitarbeiterSuchen() {
+        return new MitarbeiterSuchen();
     }
 
     /**
-     * Create an instance of {@link AusleiheSuchen }
+     * Create an instance of {@link MitarbeiterBearbeiten }
      * 
      */
-    public AusleiheSuchen createAusleiheSuchen() {
-        return new AusleiheSuchen();
-    }
-
-    /**
-     * Create an instance of {@link NeueAusleiheHinzufuegen }
-     * 
-     */
-    public NeueAusleiheHinzufuegen createNeueAusleiheHinzufuegen() {
-        return new NeueAusleiheHinzufuegen();
-    }
-
-    /**
-     * Create an instance of {@link AnzahlVerringern }
-     * 
-     */
-    public AnzahlVerringern createAnzahlVerringern() {
-        return new AnzahlVerringern();
+    public MitarbeiterBearbeiten createMitarbeiterBearbeiten() {
+        return new MitarbeiterBearbeiten();
     }
 
     /**
@@ -114,119 +99,151 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AusleiheSuchenResponse }
+     * Create an instance of {@link GetAllMitarbeiterResponse }
      * 
      */
-    public AusleiheSuchenResponse createAusleiheSuchenResponse() {
-        return new AusleiheSuchenResponse();
+    public GetAllMitarbeiterResponse createGetAllMitarbeiterResponse() {
+        return new GetAllMitarbeiterResponse();
     }
 
     /**
-     * Create an instance of {@link LeihfristVerlaengern }
+     * Create an instance of {@link MitarbeiterBearbeitenResponse }
      * 
      */
-    public LeihfristVerlaengern createLeihfristVerlaengern() {
-        return new LeihfristVerlaengern();
+    public MitarbeiterBearbeitenResponse createMitarbeiterBearbeitenResponse() {
+        return new MitarbeiterBearbeitenResponse();
     }
 
     /**
-     * Create an instance of {@link AusleiheLoeschenResponse }
+     * Create an instance of {@link InvalidLoginException }
      * 
      */
-    public AusleiheLoeschenResponse createAusleiheLoeschenResponse() {
-        return new AusleiheLoeschenResponse();
+    public InvalidLoginException createInvalidLoginException() {
+        return new InvalidLoginException();
     }
 
     /**
-     * Create an instance of {@link GetAusleihenByKundenId }
+     * Create an instance of {@link NeuenMitarbeiterHinzufuegenResponse }
      * 
      */
-    public GetAusleihenByKundenId createGetAusleihenByKundenId() {
-        return new GetAusleihenByKundenId();
+    public NeuenMitarbeiterHinzufuegenResponse createNeuenMitarbeiterHinzufuegenResponse() {
+        return new NeuenMitarbeiterHinzufuegenResponse();
     }
 
     /**
-     * Create an instance of {@link GetAllAusleihen }
+     * Create an instance of {@link MitarbeiterSuchenByBenutzername }
      * 
      */
-    public GetAllAusleihen createGetAllAusleihen() {
-        return new GetAllAusleihen();
+    public MitarbeiterSuchenByBenutzername createMitarbeiterSuchenByBenutzername() {
+        return new MitarbeiterSuchenByBenutzername();
     }
 
     /**
-     * Create an instance of {@link LeihfristVerlaengernResponse }
+     * Create an instance of {@link NeuenMitarbeiterHinzufuegen }
      * 
      */
-    public LeihfristVerlaengernResponse createLeihfristVerlaengernResponse() {
-        return new LeihfristVerlaengernResponse();
+    public NeuenMitarbeiterHinzufuegen createNeuenMitarbeiterHinzufuegen() {
+        return new NeuenMitarbeiterHinzufuegen();
     }
 
     /**
-     * Create an instance of {@link GetAllAusleihenResponse }
+     * Create an instance of {@link Logout }
      * 
      */
-    public GetAllAusleihenResponse createGetAllAusleihenResponse() {
-        return new GetAllAusleihenResponse();
+    public Logout createLogout() {
+        return new Logout();
     }
 
     /**
-     * Create an instance of {@link NeueAusleiheHinzufuegenResponse }
+     * Create an instance of {@link LoginMitarbeiterResponse }
      * 
      */
-    public NeueAusleiheHinzufuegenResponse createNeueAusleiheHinzufuegenResponse() {
-        return new NeueAusleiheHinzufuegenResponse();
+    public LoginMitarbeiterResponse createLoginMitarbeiterResponse() {
+        return new LoginMitarbeiterResponse();
     }
 
     /**
-     * Create an instance of {@link GetAusleihenByKundenIdResponse }
+     * Create an instance of {@link MitarbeiterSuchenByBenutzernameResponse }
      * 
      */
-    public GetAusleihenByKundenIdResponse createGetAusleihenByKundenIdResponse() {
-        return new GetAusleihenByKundenIdResponse();
+    public MitarbeiterSuchenByBenutzernameResponse createMitarbeiterSuchenByBenutzernameResponse() {
+        return new MitarbeiterSuchenByBenutzernameResponse();
     }
 
     /**
-     * Create an instance of {@link AusleiheTO }
+     * Create an instance of {@link LoginMitarbeiter }
      * 
      */
-    public AusleiheTO createAusleiheTO() {
-        return new AusleiheTO();
+    public LoginMitarbeiter createLoginMitarbeiter() {
+        return new LoginMitarbeiter();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AnzahlErhoehen }{@code >}}
+     * Create an instance of {@link MitarbeiterLoeschen }
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "anzahlErhoehen")
-    public JAXBElement<AnzahlErhoehen> createAnzahlErhoehen(AnzahlErhoehen value) {
-        return new JAXBElement<AnzahlErhoehen>(_AnzahlErhoehen_QNAME, AnzahlErhoehen.class, null, value);
+    public MitarbeiterLoeschen createMitarbeiterLoeschen() {
+        return new MitarbeiterLoeschen();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AnzahlVerringernResponse }{@code >}}
+     * Create an instance of {@link LogoutResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "anzahlVerringernResponse")
-    public JAXBElement<AnzahlVerringernResponse> createAnzahlVerringernResponse(AnzahlVerringernResponse value) {
-        return new JAXBElement<AnzahlVerringernResponse>(_AnzahlVerringernResponse_QNAME, AnzahlVerringernResponse.class, null, value);
+    public LogoutResponse createLogoutResponse() {
+        return new LogoutResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AnzahlErhoehenResponse }{@code >}}
+     * Create an instance of {@link SessionTO }
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "anzahlErhoehenResponse")
-    public JAXBElement<AnzahlErhoehenResponse> createAnzahlErhoehenResponse(AnzahlErhoehenResponse value) {
-        return new JAXBElement<AnzahlErhoehenResponse>(_AnzahlErhoehenResponse_QNAME, AnzahlErhoehenResponse.class, null, value);
+    public SessionTO createSessionTO() {
+        return new SessionTO();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AusleiheLoeschen }{@code >}}
+     * Create an instance of {@link MitarbeiterTO }
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "ausleiheLoeschen")
-    public JAXBElement<AusleiheLoeschen> createAusleiheLoeschen(AusleiheLoeschen value) {
-        return new JAXBElement<AusleiheLoeschen>(_AusleiheLoeschen_QNAME, AusleiheLoeschen.class, null, value);
+    public MitarbeiterTO createMitarbeiterTO() {
+        return new MitarbeiterTO();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link MitarbeiterLoeschenResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "mitarbeiterLoeschenResponse")
+    public JAXBElement<MitarbeiterLoeschenResponse> createMitarbeiterLoeschenResponse(MitarbeiterLoeschenResponse value) {
+        return new JAXBElement<MitarbeiterLoeschenResponse>(_MitarbeiterLoeschenResponse_QNAME, MitarbeiterLoeschenResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link MitarbeiterSuchen }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "mitarbeiterSuchen")
+    public JAXBElement<MitarbeiterSuchen> createMitarbeiterSuchen(MitarbeiterSuchen value) {
+        return new JAXBElement<MitarbeiterSuchen>(_MitarbeiterSuchen_QNAME, MitarbeiterSuchen.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllMitarbeiter }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAllMitarbeiter")
+    public JAXBElement<GetAllMitarbeiter> createGetAllMitarbeiter(GetAllMitarbeiter value) {
+        return new JAXBElement<GetAllMitarbeiter>(_GetAllMitarbeiter_QNAME, GetAllMitarbeiter.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link MitarbeiterSuchenResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "mitarbeiterSuchenResponse")
+    public JAXBElement<MitarbeiterSuchenResponse> createMitarbeiterSuchenResponse(MitarbeiterSuchenResponse value) {
+        return new JAXBElement<MitarbeiterSuchenResponse>(_MitarbeiterSuchenResponse_QNAME, MitarbeiterSuchenResponse.class, null, value);
     }
 
     /**
@@ -239,111 +256,120 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AusleiheSuchenResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllMitarbeiterResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "ausleiheSuchenResponse")
-    public JAXBElement<AusleiheSuchenResponse> createAusleiheSuchenResponse(AusleiheSuchenResponse value) {
-        return new JAXBElement<AusleiheSuchenResponse>(_AusleiheSuchenResponse_QNAME, AusleiheSuchenResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAllMitarbeiterResponse")
+    public JAXBElement<GetAllMitarbeiterResponse> createGetAllMitarbeiterResponse(GetAllMitarbeiterResponse value) {
+        return new JAXBElement<GetAllMitarbeiterResponse>(_GetAllMitarbeiterResponse_QNAME, GetAllMitarbeiterResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NeueAusleiheHinzufuegen }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link MitarbeiterBearbeitenResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "neueAusleiheHinzufuegen")
-    public JAXBElement<NeueAusleiheHinzufuegen> createNeueAusleiheHinzufuegen(NeueAusleiheHinzufuegen value) {
-        return new JAXBElement<NeueAusleiheHinzufuegen>(_NeueAusleiheHinzufuegen_QNAME, NeueAusleiheHinzufuegen.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "mitarbeiterBearbeitenResponse")
+    public JAXBElement<MitarbeiterBearbeitenResponse> createMitarbeiterBearbeitenResponse(MitarbeiterBearbeitenResponse value) {
+        return new JAXBElement<MitarbeiterBearbeitenResponse>(_MitarbeiterBearbeitenResponse_QNAME, MitarbeiterBearbeitenResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AnzahlVerringern }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link MitarbeiterBearbeiten }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "anzahlVerringern")
-    public JAXBElement<AnzahlVerringern> createAnzahlVerringern(AnzahlVerringern value) {
-        return new JAXBElement<AnzahlVerringern>(_AnzahlVerringern_QNAME, AnzahlVerringern.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "mitarbeiterBearbeiten")
+    public JAXBElement<MitarbeiterBearbeiten> createMitarbeiterBearbeiten(MitarbeiterBearbeiten value) {
+        return new JAXBElement<MitarbeiterBearbeiten>(_MitarbeiterBearbeiten_QNAME, MitarbeiterBearbeiten.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AusleiheSuchen }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link MitarbeiterSuchenByBenutzername }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "ausleiheSuchen")
-    public JAXBElement<AusleiheSuchen> createAusleiheSuchen(AusleiheSuchen value) {
-        return new JAXBElement<AusleiheSuchen>(_AusleiheSuchen_QNAME, AusleiheSuchen.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "mitarbeiterSuchenByBenutzername")
+    public JAXBElement<MitarbeiterSuchenByBenutzername> createMitarbeiterSuchenByBenutzername(MitarbeiterSuchenByBenutzername value) {
+        return new JAXBElement<MitarbeiterSuchenByBenutzername>(_MitarbeiterSuchenByBenutzername_QNAME, MitarbeiterSuchenByBenutzername.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllAusleihen }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InvalidLoginException }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAllAusleihen")
-    public JAXBElement<GetAllAusleihen> createGetAllAusleihen(GetAllAusleihen value) {
-        return new JAXBElement<GetAllAusleihen>(_GetAllAusleihen_QNAME, GetAllAusleihen.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "InvalidLoginException")
+    public JAXBElement<InvalidLoginException> createInvalidLoginException(InvalidLoginException value) {
+        return new JAXBElement<InvalidLoginException>(_InvalidLoginException_QNAME, InvalidLoginException.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAusleihenByKundenId }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link NeuenMitarbeiterHinzufuegenResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAusleihenByKundenId")
-    public JAXBElement<GetAusleihenByKundenId> createGetAusleihenByKundenId(GetAusleihenByKundenId value) {
-        return new JAXBElement<GetAusleihenByKundenId>(_GetAusleihenByKundenId_QNAME, GetAusleihenByKundenId.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "neuenMitarbeiterHinzufuegenResponse")
+    public JAXBElement<NeuenMitarbeiterHinzufuegenResponse> createNeuenMitarbeiterHinzufuegenResponse(NeuenMitarbeiterHinzufuegenResponse value) {
+        return new JAXBElement<NeuenMitarbeiterHinzufuegenResponse>(_NeuenMitarbeiterHinzufuegenResponse_QNAME, NeuenMitarbeiterHinzufuegenResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LeihfristVerlaengern }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Logout }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "leihfristVerlaengern")
-    public JAXBElement<LeihfristVerlaengern> createLeihfristVerlaengern(LeihfristVerlaengern value) {
-        return new JAXBElement<LeihfristVerlaengern>(_LeihfristVerlaengern_QNAME, LeihfristVerlaengern.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "logout")
+    public JAXBElement<Logout> createLogout(Logout value) {
+        return new JAXBElement<Logout>(_Logout_QNAME, Logout.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AusleiheLoeschenResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link NeuenMitarbeiterHinzufuegen }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "ausleiheLoeschenResponse")
-    public JAXBElement<AusleiheLoeschenResponse> createAusleiheLoeschenResponse(AusleiheLoeschenResponse value) {
-        return new JAXBElement<AusleiheLoeschenResponse>(_AusleiheLoeschenResponse_QNAME, AusleiheLoeschenResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "neuenMitarbeiterHinzufuegen")
+    public JAXBElement<NeuenMitarbeiterHinzufuegen> createNeuenMitarbeiterHinzufuegen(NeuenMitarbeiterHinzufuegen value) {
+        return new JAXBElement<NeuenMitarbeiterHinzufuegen>(_NeuenMitarbeiterHinzufuegen_QNAME, NeuenMitarbeiterHinzufuegen.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllAusleihenResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginMitarbeiterResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAllAusleihenResponse")
-    public JAXBElement<GetAllAusleihenResponse> createGetAllAusleihenResponse(GetAllAusleihenResponse value) {
-        return new JAXBElement<GetAllAusleihenResponse>(_GetAllAusleihenResponse_QNAME, GetAllAusleihenResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "loginMitarbeiterResponse")
+    public JAXBElement<LoginMitarbeiterResponse> createLoginMitarbeiterResponse(LoginMitarbeiterResponse value) {
+        return new JAXBElement<LoginMitarbeiterResponse>(_LoginMitarbeiterResponse_QNAME, LoginMitarbeiterResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LeihfristVerlaengernResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link LogoutResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "leihfristVerlaengernResponse")
-    public JAXBElement<LeihfristVerlaengernResponse> createLeihfristVerlaengernResponse(LeihfristVerlaengernResponse value) {
-        return new JAXBElement<LeihfristVerlaengernResponse>(_LeihfristVerlaengernResponse_QNAME, LeihfristVerlaengernResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "logoutResponse")
+    public JAXBElement<LogoutResponse> createLogoutResponse(LogoutResponse value) {
+        return new JAXBElement<LogoutResponse>(_LogoutResponse_QNAME, LogoutResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAusleihenByKundenIdResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link MitarbeiterLoeschen }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "getAusleihenByKundenIdResponse")
-    public JAXBElement<GetAusleihenByKundenIdResponse> createGetAusleihenByKundenIdResponse(GetAusleihenByKundenIdResponse value) {
-        return new JAXBElement<GetAusleihenByKundenIdResponse>(_GetAusleihenByKundenIdResponse_QNAME, GetAusleihenByKundenIdResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "mitarbeiterLoeschen")
+    public JAXBElement<MitarbeiterLoeschen> createMitarbeiterLoeschen(MitarbeiterLoeschen value) {
+        return new JAXBElement<MitarbeiterLoeschen>(_MitarbeiterLoeschen_QNAME, MitarbeiterLoeschen.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NeueAusleiheHinzufuegenResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginMitarbeiter }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "neueAusleiheHinzufuegenResponse")
-    public JAXBElement<NeueAusleiheHinzufuegenResponse> createNeueAusleiheHinzufuegenResponse(NeueAusleiheHinzufuegenResponse value) {
-        return new JAXBElement<NeueAusleiheHinzufuegenResponse>(_NeueAusleiheHinzufuegenResponse_QNAME, NeueAusleiheHinzufuegenResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "loginMitarbeiter")
+    public JAXBElement<LoginMitarbeiter> createLoginMitarbeiter(LoginMitarbeiter value) {
+        return new JAXBElement<LoginMitarbeiter>(_LoginMitarbeiter_QNAME, LoginMitarbeiter.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link MitarbeiterSuchenByBenutzernameResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservices.bw.de/", name = "mitarbeiterSuchenByBenutzernameResponse")
+    public JAXBElement<MitarbeiterSuchenByBenutzernameResponse> createMitarbeiterSuchenByBenutzernameResponse(MitarbeiterSuchenByBenutzernameResponse value) {
+        return new JAXBElement<MitarbeiterSuchenByBenutzernameResponse>(_MitarbeiterSuchenByBenutzernameResponse_QNAME, MitarbeiterSuchenByBenutzernameResponse.class, null, value);
     }
 
 }
