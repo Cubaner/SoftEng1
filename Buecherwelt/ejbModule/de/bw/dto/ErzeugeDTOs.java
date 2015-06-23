@@ -121,6 +121,7 @@ public List<MitarbeiterTO> createMitarbeiterDTO(List<Mitarbeiter> mitarbeiter) {
 	  AusleiheTO ausleiheTO = new AusleiheTO();
 	  ausleiheTO.setId(ausleihe.getId());
 	  ausleiheTO.setLeihdatum(ausleihe.getLeihdatum());
+	  ausleiheTO.setRueckgabedatum(ausleihe.getRueckgabedatum());
 	  ausleiheTO.setKundenId(ausleihe.getKundenId());
 	  ausleiheTO.setBuchId(ausleihe.getBuchId());
 	  return ausleiheTO;

@@ -14,14 +14,16 @@ public class AusleiheTO implements Serializable {
 	int id;
 	
 	Date leihdatum;
+	Date rueckgabedatum;
 	int kundenId;
 	int buchId;
 	
 	public AusleiheTO() {}
 	
-	public AusleiheTO(int id, Date leihdatum, int kundenId, int buchId) {
+	public AusleiheTO(int id, Date leihdatum, Date rueckgabedatum, int kundenId, int buchId) {
 		this.id = id;
 		this.leihdatum = leihdatum;
+		this.rueckgabedatum = rueckgabedatum;
 		this.kundenId = kundenId;
 		this.buchId = buchId;
 	}
@@ -40,6 +42,14 @@ public class AusleiheTO implements Serializable {
 
 	public void setLeihdatum(Date leihdatum) {
 		this.leihdatum = leihdatum;
+	}
+
+	public Date getRueckgabedatum() {
+		return rueckgabedatum;
+	}
+
+	public void setRueckgabedatum(Date rueckgabedatum) {
+		this.rueckgabedatum = rueckgabedatum;
 	}
 
 	public int getKundenId() {

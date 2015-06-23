@@ -71,12 +71,14 @@ public class Buchverwaltung {
 	public BuchTO neuesBuchHinzufuegen(int id, String titel, String autor, int erscheinungsjahr, int anzahl) throws BuecherweltException {
 			Buch buch = dao.createBuch(id, titel, autor, erscheinungsjahr, anzahl);
 			if (buch == null) {
-				logger.info("Hinzufuegen fehlgeschlagen, da das Buch " + buch.getId() + " bereits existiert");
+				logger.info("Hinzufuegen fehlgeschlagen, da das Buch bereits existiert");
 				throw new BuecherweltException("Hinzufuegen fehlgeschlagen, da das Buch bereits existiert");
 			}
+			else {
 			BuchTO buchTO = dtoErzeuger.createBuchDTO(buch);
 			logger.info("Buch mit Id: " + buch.getId() + " wurde hinzugefuegt.");
 			return buchTO;
+			}
 	}
 	
 	/**

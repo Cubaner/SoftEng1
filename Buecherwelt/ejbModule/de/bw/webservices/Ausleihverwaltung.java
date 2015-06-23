@@ -148,7 +148,7 @@ public class Ausleihverwaltung {
 	 * Methode zum Verlängern der Leihfrist um einen Monat
 	 * @throws BuecherweltException 
 	 */
-	public Date leihfristVerlaengern(int id) throws BuecherweltException {
+	public void leihfristVerlaengern(int id) throws BuecherweltException {
 		Date rueckgabedatum = new Date();
 		Ausleihe ausleihe = dao.findAusleiheById(id);
 		if(ausleihe != null) {
@@ -158,7 +158,6 @@ public class Ausleihverwaltung {
 			rueckgabedatum = cal.getTime();
 			ausleihe.setRueckgabedatum(rueckgabedatum);
 			logger.info("Neues Datum: " + rueckgabedatum);
-			return rueckgabedatum;
 		}
 		else {
 			logger.info("Ausleihe nicht gefunden");
